@@ -1,0 +1,33 @@
+3/22/2024
+3/22/2024
+3/22/2024
+3/22/2024
+3/22/2024
+3/22/2024
+2
+11:07:31 AM
+Score: 0
+
+2
+11:07:32 AM
+Score: 2
+
+2
+11:07:33 AM
+Score: 4
+
+3
+11:07:34 AM
+Collision: RedCoin (4) with mixamorig:LeftArm at 0.2134401, 1.046122, 1.785094
+Score: 6
+
+8
+11:07:35 AM
+Collision: RedCoin (3) with mixamorig:LeftArm at 0.2134401, 1.038122, 1.976094
+Collision: mixamorig:RightShoulder with Cube (2) at 0.78, 0.389, 2.497064
+Collision: mixamorig:RightArm with Cube (2) at 0.78, 0.389, 2.497064
+Collision: mixamorig:RightHand with Cube (2) at 0.78, 0.389, 2.497064
+Collision: mixamorig:RightForeArm with Cube (2) at 0.78, 0.389, 2.497064
+Collision: RedCoin with mixamorig:LeftForeArm at 0.1681903, 1.191842, 2.017728
+Score: -390
+

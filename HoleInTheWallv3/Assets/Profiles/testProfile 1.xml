@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<ProfileDataCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profiles>
+    <Profile>
+      <achievements>
+        <string>test ach 1</string>
+        <string>test ach 2</string>
+        <string>test ach 3</string>
+      </achievements>
+      <achievementSet>
+        <string>test hash ach 1</string>
+        <string>test hash ach 2</string>
+      </achievementSet>
+      <highScore>10</highScore>
+    </Profile>
+	<Profile>
+		<achievements>
+			<string>test ach 1</string>
+			<string>test ach 2</string>
+			<string>test ach 3</string>
+		</achievements>
+		<achievementSet>
+			<string>test hash ach 1</string>
+			<string>test hash ach 2</string>
+		</achievementSet>
+		<highScore>10</highScore>
+	</Profile>
+	<Profile>
+		<achievements>
+			<string>test ach 1</string>
+			<string>test ach 2</string>
+			<string>test ach 3</string>
+		</achievements>
+		<achievementSet>
+			<string>test hash ach 1</string>
+			<string>test hash ach 2</string>
+		</achievementSet>
+		<highScore>10</highScore>
+	</Profile>
+  </Profiles>
+</ProfileDataCollection>

@@ -1,0 +1,4 @@
+First Game, 20
+Perfect Pass, 50
+5 Streak, 100
+Score 1000, 100

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<LevelCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Levels>
+    <Level>
+      <name>Test Level</name>
+      <cubes>
+        <Cube>
+          <x1>0</x1>
+          <y1>0</y1>
+          <z1>0</z1>
+          <x2>1</x2>
+          <y2>2</y2>
+          <z2>1</z2>
+          <xRot>0</xRot>
+          <yRot>0</yRot>
+          <zRot>0</zRot>
+        </Cube>
+      </cubes>
+      <coins>
+        <Coin>
+          <x>-1</x>
+          <y>0</y>
+          <z>-1</z>
+          <type>0</type>
+        </Coin>
+      </coins>
+    </Level>
+  </Levels>
+</LevelCollection>
