@@ -1070,6 +1070,65 @@ Transform:
   - {fileID: 8073337312554474057}
   m_Father: {fileID: 177649692113545194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1473882612724864631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6159547434980434162}
+  - component: {fileID: 5885196849737132982}
+  m_Layer: 0
+  m_Name: Energy Expenditure Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6159547434980434162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473882612724864631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6718009124604951483}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5885196849737132982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473882612724864631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745d65654567a3841a19f6724299517b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor: {fileID: 0}
+  root_joint: {fileID: 5425313355595818885}
+  left_up_leg: {fileID: 5379354413696038991}
+  right_up_leg: {fileID: 8650185775196028075}
+  left_leg: {fileID: 2237317099207770865}
+  right_leg: {fileID: 7925378750647498111}
+  spine_1: {fileID: 1883217018560492472}
+  left_arm: {fileID: 1283188185507758580}
+  right_arm: {fileID: 173302519748491031}
+  left_forearm: {fileID: 3315236718158951833}
+  right_forearm: {fileID: 3481844588499790049}
+  left_hand: {fileID: 4182314727301533838}
+  right_hand: {fileID: 8774938073995388053}
+  left_foot: {fileID: 6672796536725955585}
+  right_foot: {fileID: 2279016153436907782}
 --- !u!1 &1533300491574833585
 GameObject:
   m_ObjectHideFlags: 0
@@ -5975,6 +6034,7 @@ Transform:
   - {fileID: 8287867699621434247}
   - {fileID: 7258615950152627077}
   - {fileID: 5930231575649388146}
+  - {fileID: 6159547434980434162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &764744671578402714
@@ -6020,6 +6080,7 @@ MonoBehaviour:
   movement_boundary: {fileID: 1826158611909728501}
   has_over_moved: 0
   has_over_rotated: 0
+  energy_script: {fileID: 5885196849737132982}
 --- !u!1 &6189075230920224992
 GameObject:
   m_ObjectHideFlags: 0

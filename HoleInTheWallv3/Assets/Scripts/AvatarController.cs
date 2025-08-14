@@ -33,6 +33,10 @@ public class AvatarController : MonoBehaviour
     public bool has_over_moved = false;
     public bool has_over_rotated = false;
 
+
+    [Header("Energy Script")]
+    [SerializeField] private EnergyExpenditure energy_script;
+
     private Vector3 prefab_position;
 
     //file to read from
@@ -155,10 +159,12 @@ public class AvatarController : MonoBehaviour
             }
         }
 
+        float energy_expenditure = energy_script.Calculate_energy();
+
         //record the hand position
-        string data = string.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\"\n",
+        string data = string.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\"\n",
                                     wall_id, position_record["l_hand_position"], position_record["r_hand_position"], position_record["hip_rotation"],
-                                    position_record["l_leg_position"], position_record["r_leg_position"], position_record["body_position"]);
+                                    position_record["l_leg_position"], position_record["r_leg_position"], position_record["body_position"], energy_expenditure);
 
         //record the position of everything
         File.AppendAllText(final_position_file, data);
