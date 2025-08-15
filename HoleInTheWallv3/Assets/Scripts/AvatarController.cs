@@ -62,14 +62,14 @@ public class AvatarController : MonoBehaviour
         final_position_file = controller_path + "/final_position.csv";
 
         //tests
-        Read_movement_file(11);
+        StartCoroutine(Read_movement_file(11));
         //Generate_Movement_File(6);
         //StartCoroutine(Generate_Movement(5));
+
     }
 
-
     //when reading file, make sure to reset controller first to have the pose in the correct starting pose
-    public void Read_movement_file(int wall_id)
+    public IEnumerator Read_movement_file(int wall_id)
     {
         Dictionary<string, (float, float, float)> position_record = new()
         {
@@ -159,7 +159,13 @@ public class AvatarController : MonoBehaviour
             }
         }
 
+        //must give it some time for the ragdoll to catch up to the changes of the static animator
+        float project_time = Time.timeScale;
+        Time.timeScale = 30f;
+        yield return new WaitForSeconds(10f);
+
         float energy_expenditure = energy_script.Calculate_energy();
+        Time.timeScale = project_time;
 
         //record the hand position
         string data = string.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\"\n",
@@ -462,7 +468,7 @@ public class AvatarController : MonoBehaviour
 
         System.Random num_gen = new();
         int move_type;
-        
+
         while (move_count > 0)
         {
             move_type = UnityEngine.Random.Range(0, 6);

@@ -35,15 +35,17 @@ public class EnergyExpenditure : MonoBehaviour
     public GameObject left_foot;
     public GameObject right_foot;
 
-    private readonly float avg_mass = 70000;                                // grams
-    private readonly float gravity_accel = Mathf.Abs(Physics.gravity.y);    // meters / second^2
-    private readonly float time = 1f;                                       // second       
+    private readonly float avg_mass = 70;                                            // kg
+    private readonly float gravity_accel = Mathf.Abs(Physics.gravity.y);                // meters / second^2
+    private readonly float time = 1f;                                                   // second       
 
+    /** External Energy **/
     private UnityEngine.Vector3 com_offset = new(0f, 0f, 0f);                           // center of mass offset; currently unknown - no access to paper cited            
     private UnityEngine.Vector3 com_pos;                                                // Vector3 com_pos = root_joint.position + com_offset;
     private UnityEngine.Vector3 initial_com_pos;                                       // initial com position
     private float initial_com_energy;
 
+    /** Internal Limb Energy **/
     private Dictionary<string, float> limb_length = new();
     private Dictionary<string, float> limb_mass = new();
     private Dictionary<string, UnityEngine.Vector3> limb_gyration = new();
@@ -51,7 +53,25 @@ public class EnergyExpenditure : MonoBehaviour
     private Dictionary<string, UnityEngine.Quaternion> initial_limb_rotation;
     private float initial_int_energy;
 
+    //values are based on average male values, will change later if needed
     void Awake()
+    {
+        Capture_Initial_States();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void Capture_Initial_States()
     {
         //find the initial positions of the avatar
         com_pos = root_joint.position + com_offset;
@@ -77,10 +97,10 @@ public class EnergyExpenditure : MonoBehaviour
         limb_length["left_arm"] = 0.302f;
         limb_length["left_forearm"] = .269f;
         limb_length["spine_1"] = 0.488f;
-        limb_length["right_up_leg"] = limb_mass["left_up_leg"];
-        limb_length["right_leg"] = limb_mass["left_leg"];
-        limb_length["right_arm"] = limb_mass["left_arm"];
-        limb_length["right_forearm"] = limb_mass["left_forearm"];
+        limb_length["right_up_leg"] = limb_length["left_up_leg"];
+        limb_length["right_leg"] = limb_length["left_leg"];
+        limb_length["right_arm"] = limb_length["left_arm"];
+        limb_length["right_forearm"] = limb_length["left_forearm"];
 
         //find the radii of gyration
         limb_gyration["left_up_leg"] = new(0.329f, 0.329f, 0.149f);
@@ -103,25 +123,21 @@ public class EnergyExpenditure : MonoBehaviour
         initial_int_energy = Calculate_energy_transfer();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    //random test functions for clicking during runtime
+    public void test_func()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Debug.Log("Left up leg : " + Store_limb_rotation()["left_up_leg"]);
     }
 
     public float Calculate_energy()
     {
         //find external work -> Ecom(t+1) - Ecom(t) where t = 0
         float external_work = Calculate_COM_WB() - initial_com_energy;
+        //Debug.Log("This is the external work " + external_work);
 
         //find internal work -> Eint(t+1) - Eint(t) where t = 0
         float internal_work = Calculate_energy_transfer() - initial_int_energy;
+        //Debug.Log("This is the internal work " + internal_work);
 
         return external_work + internal_work;
     }
@@ -129,7 +145,7 @@ public class EnergyExpenditure : MonoBehaviour
     // center of mass for whole body. 
     // E = (mass)(gravity accel)(height at time t) + (1/2)(mass)(linear velocity of COM at time t)^2
     // disregard time, not a factor in calculations here. 
-    // units : g(m)^2 / (s)^2
+    // units : kg(m)^2 / (s)^2 == Joules
     private float Calculate_COM_WB()
     {
         UnityEngine.Vector3 com_velocity;
@@ -165,7 +181,7 @@ public class EnergyExpenditure : MonoBehaviour
         combined_int_energy += Energy_transfer_helper("right_arm");
         combined_int_energy += Energy_transfer_helper("left_forearm");
         combined_int_energy += Energy_transfer_helper("right_forearm");
-        combined_int_energy += Energy_transfer_helper("spine1");
+        combined_int_energy += Energy_transfer_helper("spine_1");
 
         return combined_int_energy;
     }
@@ -193,7 +209,7 @@ public class EnergyExpenditure : MonoBehaviour
         float angle_rad = angle_deg * Mathf.Deg2Rad;
         UnityEngine.Vector3 a_velocity = axis * (angle_rad / time);
 
-        //find the gyration's inertia
+        //find the gyration's inertia. equation given by the wiki doc from Zatsiorsky-Seluyanov paper
         UnityEngine.Vector3 gyration_squared = new()
         {
             x = limb_mass[limb_part] * avg_mass * (float)Math.Pow(limb_length[limb_part] * limb_gyration[limb_part].x, 2),
@@ -222,7 +238,8 @@ public class EnergyExpenditure : MonoBehaviour
             ["left_arm"] = (left_arm.transform.position + left_forearm.transform.position) / 2f,
             ["right_arm"] = (right_arm.transform.position + right_forearm.transform.position) / 2f,
             ["left_forearm"] = (left_forearm.transform.position + left_hand.transform.position) / 2f,
-            ["right_forearm"] = (right_forearm.transform.position + right_hand.transform.position) / 2f
+            ["right_forearm"] = (right_forearm.transform.position + right_hand.transform.position) / 2f,
+            ["spine_1"] = com_pos
         };
 
         return limb_com;
