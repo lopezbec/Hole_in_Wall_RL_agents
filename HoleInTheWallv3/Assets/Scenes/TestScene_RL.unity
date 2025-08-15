@@ -833,6 +833,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &140066551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3925751003739070687, guid: 41c01d48e69bc614cafbf52b454abdc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 499912836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebdcbee5179bd34883b94f912468d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &182760709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,6 +3441,7 @@ MonoBehaviour:
   block_width: 0.3
   block_depth: 0.2
   custom_cube_amt: 5
+  avatar_script: {fileID: 140066551}
 --- !u!65 &874627841
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6323,6 +6336,7 @@ MonoBehaviour:
   block_width: 0.3
   block_depth: 0.2
   custom_cube_amt: 5
+  avatar_script: {fileID: 140066551}
 --- !u!65 &1610121174
 BoxCollider:
   m_ObjectHideFlags: 0

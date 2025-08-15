@@ -20,11 +20,8 @@ public class ObstacleGenerator : MonoBehaviour
 
     //second way to generate the wall
     public int custom_cube_amt = 5;
-
-    private bool is_waiting = true;
-    private float timer = 0;
-    private float wait_time = 7.5f;                                                 //wait until ragdoll is done with physics
     private float move_spd = .1f;
+    public AvatarController avatar_script;
 
     // Start is called before the first frame update
     void Start()
@@ -266,15 +263,6 @@ public class ObstacleGenerator : MonoBehaviour
 
     private void Move_wall()
     {
-        if (is_waiting)
-        {
-            timer += Time.deltaTime;
-            if (timer >= wait_time)
-            {
-                is_waiting = false;
-                timer = 0f;
-            }
-        }
-        else transform.position = new(transform.position.x, transform.position.y, transform.position.z - move_spd);
+        if(avatar_script.completed_pose) transform.position = new(transform.position.x, transform.position.y, transform.position.z - move_spd);
     }
 }

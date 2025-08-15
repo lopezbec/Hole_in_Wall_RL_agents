@@ -33,7 +33,8 @@ public class AvatarController : MonoBehaviour
     public bool has_over_moved = false;
     public bool has_over_rotated = false;
 
-
+    public bool completed_pose = false;
+    
     [Header("Energy Script")]
     [SerializeField] private EnergyExpenditure energy_script;
 
@@ -164,6 +165,7 @@ public class AvatarController : MonoBehaviour
         Time.timeScale = 30f;
         yield return new WaitForSeconds(10f);
 
+        completed_pose = true;
         float energy_expenditure = energy_script.Calculate_energy();
         Time.timeScale = project_time;
 
