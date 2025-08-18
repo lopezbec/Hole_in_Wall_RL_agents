@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {}
+    "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {
+    "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
         "projectName": "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator",
-        "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
+        "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
         "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\obj\\",
+        "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config"

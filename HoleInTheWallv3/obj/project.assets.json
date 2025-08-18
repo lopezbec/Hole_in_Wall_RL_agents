@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.1": {
-      "VG_Scripts/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/VG_Scripts.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/VG_Scripts.dll": {}
-        }
-      }
-    }
+    ".NETStandard,Version=v2.1": {}
   },
-  "libraries": {
-    "VG_Scripts/1.0.0": {
-      "type": "project",
-      "path": "VG_Scripts.csproj",
-      "msbuildProject": "VG_Scripts.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.1": [
-      "VG_Scripts >= 1.0.0"
-    ]
+    ".NETStandard,Version=v2.1": []
   },
   "packageFolders": {
     "C:\\Users\\W\\.nuget\\packages\\": {}
@@ -32,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj",
-      "projectName": "Gleechi.VirtualGrasp.Editor",
-      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj",
+      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
+      "projectName": "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator",
+      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
       "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
       "projectStyle": "PackageReference",
@@ -50,11 +31,7 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

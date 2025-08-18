@@ -126,19 +126,21 @@ public class EnergyExpenditure : MonoBehaviour
     //random test functions for clicking during runtime
     public void test_func()
     {
-        Debug.Log("Left up leg : " + Store_limb_rotation()["left_up_leg"]);
+        //Debug.Log("Left up leg : " + Store_limb_rotation()["left_up_leg"]);
+        Debug.Log("Energy used was : " + Calculate_energy());
     }
 
     public float Calculate_energy()
     {
         //find external work -> Ecom(t+1) - Ecom(t) where t = 0
-        float external_work = Calculate_COM_WB() - initial_com_energy;
+        float external_work = Math.Abs(Calculate_COM_WB() - initial_com_energy);
         //Debug.Log("This is the external work " + external_work);
 
         //find internal work -> Eint(t+1) - Eint(t) where t = 0
-        float internal_work = Calculate_energy_transfer() - initial_int_energy;
+        float internal_work = Math.Abs(Calculate_energy_transfer() - initial_int_energy);
         //Debug.Log("This is the internal work " + internal_work);
 
+        Debug.Log("Energy used was : " + (external_work + internal_work));
         return external_work + internal_work;
     }
 
