@@ -7,14 +7,18 @@ using UnityEngine;
 
 public class EnergyExpenditure : MonoBehaviour
 {
+    //Mechanical cost for action to pose:
     //https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127113#pone.0127113.e007
+
+    //Torque of limbs:
+    //https://www.nature.com/articles/s41598-021-99423-5#:~:text=At%20each%20frame%2C%20instantaneous%20power,extends%20the%20potential%20kinds%20of
 
     [Header("Floor Reference")]
     public Transform floor;
 
 
     [Header("Hip/Pelvis Joint")]
-    public Transform root_joint;
+    public GameObject root_joint;
 
 
     [Header("Joints With ConfigurableJoint Components")]
@@ -37,7 +41,7 @@ public class EnergyExpenditure : MonoBehaviour
 
     private readonly float avg_mass = 70;                                            // kg
     private readonly float gravity_accel = Mathf.Abs(Physics.gravity.y);                // meters / second^2
-    private readonly float time = 1f;                                                   // second       
+    private readonly float delta_time = 1f;                                                   // second       
 
     /** External Energy **/
     private UnityEngine.Vector3 com_offset = new(0f, 0f, 0f);                           // center of mass offset; currently unknown - no access to paper cited            
@@ -53,6 +57,8 @@ public class EnergyExpenditure : MonoBehaviour
     private Dictionary<string, UnityEngine.Quaternion> initial_limb_rotation;
     private float initial_int_energy;
 
+    private string[] limb_names = new string[] { "left_up_leg", "right_up_leg", "left_leg", "right_leg", "left_arm", "right_arm",
+                                                 "left_forearm", "right_forearm", "spine_1" };
     //values are based on average male values, will change later if needed
     void Awake()
     {
@@ -74,7 +80,7 @@ public class EnergyExpenditure : MonoBehaviour
     private void Capture_Initial_States()
     {
         //find the initial positions of the avatar
-        com_pos = root_joint.position + com_offset;
+        com_pos = root_joint.GetComponent<Rigidbody>().worldCenterOfMass + com_offset;
         initial_com_pos = com_pos;
 
         //find Ecom(t) when t = 0
@@ -134,14 +140,21 @@ public class EnergyExpenditure : MonoBehaviour
     {
         //find external work -> Ecom(t+1) - Ecom(t) where t = 0
         float external_work = Math.Abs(Calculate_COM_WB() - initial_com_energy);
-        //Debug.Log("This is the external work " + external_work);
-
         //find internal work -> Eint(t+1) - Eint(t) where t = 0
         float internal_work = Math.Abs(Calculate_energy_transfer() - initial_int_energy);
-        //Debug.Log("This is the internal work " + internal_work);
+        float transition_energy = external_work + internal_work;
 
-        Debug.Log("Energy used was : " + (external_work + internal_work));
-        return external_work + internal_work;
+        //find the power from torque used in all the limbs
+        float maintenance_energy = Calculate_maintenance_energy();
+
+        float final_energy = Alleviate_Energy(transition_energy + maintenance_energy);
+
+        //test statements
+        Debug.Log("This is the transition work : " + transition_energy);
+        Debug.Log("This is the maintenance : " + maintenance_energy);
+        Debug.Log("This is the final energy calc : " + final_energy);
+
+        return final_energy;
     }
 
     // center of mass for whole body. 
@@ -153,11 +166,11 @@ public class EnergyExpenditure : MonoBehaviour
         UnityEngine.Vector3 com_velocity;
 
         //recompute com position
-        com_pos = root_joint.position + com_offset;
+        com_pos = root_joint.GetComponent<Rigidbody>().worldCenterOfMass + com_offset;
 
         //find the velocity of center of mass
-        if (time == 0) com_velocity = new(0f, 0f, 0f);
-        else com_velocity = (com_pos - initial_com_pos) / time;
+        if (delta_time == 0) com_velocity = new(0f, 0f, 0f);
+        else com_velocity = (com_pos - initial_com_pos) / delta_time;
 
         float l_velocity = com_velocity.magnitude;
 
@@ -175,15 +188,10 @@ public class EnergyExpenditure : MonoBehaviour
     {
         float combined_int_energy = 0f;
 
-        combined_int_energy += Energy_transfer_helper("left_up_leg");
-        combined_int_energy += Energy_transfer_helper("right_up_leg");
-        combined_int_energy += Energy_transfer_helper("left_leg");
-        combined_int_energy += Energy_transfer_helper("right_leg");
-        combined_int_energy += Energy_transfer_helper("left_arm");
-        combined_int_energy += Energy_transfer_helper("right_arm");
-        combined_int_energy += Energy_transfer_helper("left_forearm");
-        combined_int_energy += Energy_transfer_helper("right_forearm");
-        combined_int_energy += Energy_transfer_helper("spine_1");
+        foreach (string limb in limb_names)
+        {
+            combined_int_energy += Energy_transfer_helper(limb);
+        }
 
         return combined_int_energy;
     }
@@ -201,15 +209,15 @@ public class EnergyExpenditure : MonoBehaviour
         float mass = limb_mass[limb_part];
 
         //find the velocity of the limb
-        if (time == 0) limb_com_velocity = new(0f, 0f, 0f);
-        else limb_com_velocity = (new_limb_com - initial_limb_com[limb_part]) / time;
+        if (delta_time == 0) limb_com_velocity = new(0f, 0f, 0f);
+        else limb_com_velocity = (new_limb_com - initial_limb_com[limb_part]) / delta_time;
         float r_velocity = limb_com_velocity.magnitude;
 
         //find the angular velocity -> separate rotation direction and angle from quaternion -> convert to radians -> calculate 
         limb_ang_delta = new_limb_rotation * UnityEngine.Quaternion.Inverse(initial_limb_rotation[limb_part]);
         limb_ang_delta.ToAngleAxis(out float angle_deg, out UnityEngine.Vector3 axis);
         float angle_rad = angle_deg * Mathf.Deg2Rad;
-        UnityEngine.Vector3 a_velocity = axis * (angle_rad / time);
+        UnityEngine.Vector3 a_velocity = axis * (angle_rad / delta_time);
 
         //find the gyration's inertia. equation given by the wiki doc from Zatsiorsky-Seluyanov paper
         UnityEngine.Vector3 gyration_squared = new()
@@ -229,6 +237,62 @@ public class EnergyExpenditure : MonoBehaviour
         return Math.Abs((0.5f * mass * r_velocity * r_velocity) + (0.5f * mass * g2_av2));
     }
 
+    //https://www.nature.com/articles/s41598-021-99423-5#:~:text=At%20each%20frame%252C%20instantaneous%20power,extends%20the%20potential%20
+    // Power = Torque * distance
+    private float Calculate_maintenance_energy()
+    {
+        float energy = 0f;
+
+        //go through the limbs
+        foreach (string limb in limb_names)
+        {
+            //find the angular velocity of the limb
+            UnityEngine.Quaternion new_limb_rotation = Store_limb_rotation()[limb];
+            UnityEngine.Quaternion limb_ang_delta = new_limb_rotation * UnityEngine.Quaternion.Inverse(initial_limb_rotation[limb]);
+            limb_ang_delta.ToAngleAxis(out float angle_deg, out UnityEngine.Vector3 axis);
+            float angle_rad = angle_deg * Mathf.Deg2Rad;
+            UnityEngine.Vector3 a_velocity = axis * (angle_rad / delta_time);
+
+            //find the torque of the limb
+            UnityEngine.Vector3 force = Physics.gravity * limb_mass[limb];
+            UnityEngine.Vector3 r = Calculate_torque_r(limb);
+
+            UnityEngine.Vector3 torque = UnityEngine.Vector3.Cross(r, force);
+
+            //get the power
+            energy += torque.magnitude;
+        }
+
+        return energy;
+    }
+
+    private UnityEngine.Vector3 Calculate_torque_r(string limb_part)
+    {
+
+        if (limb_part.CompareTo("left_up_leg") == 0) return left_up_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_up_leg") == 0) return right_up_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("left_leg") == 0) return left_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_leg") == 0) return right_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("left_arm") == 0) return left_arm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_arm") == 0) return right_arm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("left_forearm") == 0) return left_forearm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_forearm") == 0) return right_forearm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("spine_1") == 0) return spine_1.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+
+        else return UnityEngine.Vector3.zero;
+    }
+
+    //https://academic.oup.com/eurjpc/article/25/5/522/5926154#google_vignette
+    //reduce the amount of energy expenditure based off the avatar's position. 
+    //Sitting vs standing -> 0.15 / 1.47 = .10 , which is a 10% increase; when sitting energy should be divided by 1.10
+    private float Alleviate_Energy(float energy)
+    {
+        float final_energy = energy;
+
+        if (root_joint.GetComponent<PelvisCollider>().is_grounded) final_energy = energy / 1.10f;
+
+        return final_energy;
+    }
     private Dictionary<string, UnityEngine.Vector3> Store_limb_com()
     {
         Dictionary<string, UnityEngine.Vector3> limb_com = new()

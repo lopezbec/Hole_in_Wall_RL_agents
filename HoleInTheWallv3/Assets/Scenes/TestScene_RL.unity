@@ -3665,6 +3665,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environments
       objectReference: {fileID: 0}
+    - target: {fileID: 5769662507213815088, guid: cfc59887d0650b44ab8426a6a1d03852,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769662507213815088, guid: cfc59887d0650b44ab8426a6a1d03852,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769662507213815088, guid: cfc59887d0650b44ab8426a6a1d03852,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6148712604618242160, guid: cfc59887d0650b44ab8426a6a1d03852,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
