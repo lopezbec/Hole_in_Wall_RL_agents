@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnergyExpenditure : MonoBehaviour
@@ -44,17 +41,17 @@ public class EnergyExpenditure : MonoBehaviour
     private readonly float delta_time = 1f;                                                   // second       
 
     /** External Energy **/
-    private UnityEngine.Vector3 com_offset = new(0f, 0f, 0f);                           // center of mass offset; currently unknown - no access to paper cited            
-    private UnityEngine.Vector3 com_pos;                                                // Vector3 com_pos = root_joint.position + com_offset;
-    private UnityEngine.Vector3 initial_com_pos;                                       // initial com position
+    private Vector3 com_offset = new(0f, 0f, 0f);                           // center of mass offset; currently unknown - no access to paper cited            
+    private Vector3 com_pos;                                                // Vector3 com_pos = root_joint.position + com_offset;
+    private Vector3 initial_com_pos;                                       // initial com position
     private float initial_com_energy;
 
     /** Internal Limb Energy **/
     private Dictionary<string, float> limb_length = new();
     private Dictionary<string, float> limb_mass = new();
-    private Dictionary<string, UnityEngine.Vector3> limb_gyration = new();
-    private Dictionary<string, UnityEngine.Vector3> initial_limb_com;
-    private Dictionary<string, UnityEngine.Quaternion> initial_limb_rotation;
+    private Dictionary<string, Vector3> limb_gyration = new();
+    private Dictionary<string, Vector3> initial_limb_com;
+    private Dictionary<string, Quaternion> initial_limb_rotation;
     private float initial_int_energy;
 
     private string[] limb_names = new string[] { "left_up_leg", "right_up_leg", "left_leg", "right_leg", "left_arm", "right_arm",
@@ -140,6 +137,7 @@ public class EnergyExpenditure : MonoBehaviour
     {
         //find external work -> Ecom(t+1) - Ecom(t) where t = 0
         float external_work = Math.Abs(Calculate_COM_WB() - initial_com_energy);
+
         //find internal work -> Eint(t+1) - Eint(t) where t = 0
         float internal_work = Math.Abs(Calculate_energy_transfer() - initial_int_energy);
         float transition_energy = external_work + internal_work;
@@ -163,7 +161,7 @@ public class EnergyExpenditure : MonoBehaviour
     // units : kg(m)^2 / (s)^2 == Joules
     private float Calculate_COM_WB()
     {
-        UnityEngine.Vector3 com_velocity;
+        Vector3 com_velocity;
 
         //recompute com position
         com_pos = root_joint.GetComponent<Rigidbody>().worldCenterOfMass + com_offset;
@@ -200,10 +198,10 @@ public class EnergyExpenditure : MonoBehaviour
     private float Energy_transfer_helper(string limb_part)
     {
         //get the new positions
-        UnityEngine.Vector3 limb_com_velocity;
-        UnityEngine.Quaternion limb_ang_delta;
-        UnityEngine.Vector3 new_limb_com = Store_limb_com()[limb_part];
-        UnityEngine.Quaternion new_limb_rotation = Store_limb_rotation()[limb_part];
+        Vector3 limb_com_velocity;
+        Quaternion limb_ang_delta;
+        Vector3 new_limb_com = Store_limb_com()[limb_part];
+        Quaternion new_limb_rotation = Store_limb_rotation()[limb_part];
 
         //get the mass of the limb
         float mass = limb_mass[limb_part];
@@ -214,17 +212,25 @@ public class EnergyExpenditure : MonoBehaviour
         float r_velocity = limb_com_velocity.magnitude;
 
         //find the angular velocity -> separate rotation direction and angle from quaternion -> convert to radians -> calculate 
-        limb_ang_delta = new_limb_rotation * UnityEngine.Quaternion.Inverse(initial_limb_rotation[limb_part]);
-        limb_ang_delta.ToAngleAxis(out float angle_deg, out UnityEngine.Vector3 axis);
+        limb_ang_delta = new_limb_rotation * Quaternion.Inverse(initial_limb_rotation[limb_part]);
+        limb_ang_delta.ToAngleAxis(out float angle_deg, out Vector3 axis);
         float angle_rad = angle_deg * Mathf.Deg2Rad;
-        UnityEngine.Vector3 a_velocity = axis * (angle_rad / delta_time);
+        Vector3 a_velocity = axis * (angle_rad / delta_time);
 
         //find the gyration's inertia. equation given by the wiki doc from Zatsiorsky-Seluyanov paper
-        UnityEngine.Vector3 gyration_squared = new()
+        Vector3 inertia = new()
         {
             x = limb_mass[limb_part] * avg_mass * (float)Math.Pow(limb_length[limb_part] * limb_gyration[limb_part].x, 2),
             y = limb_mass[limb_part] * avg_mass * (float)Math.Pow(limb_length[limb_part] * limb_gyration[limb_part].y, 2),
             z = limb_mass[limb_part] * avg_mass * (float)Math.Pow(limb_length[limb_part] * limb_gyration[limb_part].z, 2),
+        };
+
+        // g^2 = sqrt(inertia / mass) * sqrt(inertia / mass) 
+        Vector3 gyration_squared = new()
+        {
+            x = inertia.x / avg_mass,
+            y = inertia.y / avg_mass,
+            z = inertia.z / avg_mass
         };
 
         //gyration^2 * angular_velocity^2
@@ -242,44 +248,45 @@ public class EnergyExpenditure : MonoBehaviour
     private float Calculate_maintenance_energy()
     {
         float energy = 0f;
+        Dictionary<string, Quaternion> stored_limb_rotation = Store_limb_rotation();
 
         //go through the limbs
         foreach (string limb in limb_names)
         {
             //find the angular velocity of the limb
-            UnityEngine.Quaternion new_limb_rotation = Store_limb_rotation()[limb];
-            UnityEngine.Quaternion limb_ang_delta = new_limb_rotation * UnityEngine.Quaternion.Inverse(initial_limb_rotation[limb]);
-            limb_ang_delta.ToAngleAxis(out float angle_deg, out UnityEngine.Vector3 axis);
+            Quaternion new_limb_rotation = stored_limb_rotation[limb];
+            Quaternion limb_ang_delta = new_limb_rotation * Quaternion.Inverse(initial_limb_rotation[limb]);
+            limb_ang_delta.ToAngleAxis(out float angle_deg, out Vector3 axis);
             float angle_rad = angle_deg * Mathf.Deg2Rad;
-            UnityEngine.Vector3 a_velocity = axis * (angle_rad / delta_time);
+            Vector3 a_velocity = axis * (angle_rad / delta_time);
 
             //find the torque of the limb
-            UnityEngine.Vector3 force = Physics.gravity * limb_mass[limb];
-            UnityEngine.Vector3 r = Calculate_torque_r(limb);
+            Vector3 force = Physics.gravity * limb_mass[limb];
+            Vector3 r = Calculate_torque_r(limb);
 
-            UnityEngine.Vector3 torque = UnityEngine.Vector3.Cross(r, force);
+            Vector3 torque = Vector3.Cross(r, force);
 
             //get the power
-            energy += torque.magnitude;
+            energy += Math.Abs(Vector3.Dot(torque, a_velocity));
         }
 
         return energy;
     }
 
-    private UnityEngine.Vector3 Calculate_torque_r(string limb_part)
+    private Vector3 Calculate_torque_r(string limb_part)
     {
 
         if (limb_part.CompareTo("left_up_leg") == 0) return left_up_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
         else if (limb_part.CompareTo("right_up_leg") == 0) return right_up_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
-        else if (limb_part.CompareTo("left_leg") == 0) return left_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
-        else if (limb_part.CompareTo("right_leg") == 0) return right_leg.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
-        else if (limb_part.CompareTo("left_arm") == 0) return left_arm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
-        else if (limb_part.CompareTo("right_arm") == 0) return right_arm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
-        else if (limb_part.CompareTo("left_forearm") == 0) return left_forearm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
-        else if (limb_part.CompareTo("right_forearm") == 0) return right_forearm.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("left_leg") == 0) return left_leg.GetComponent<Rigidbody>().worldCenterOfMass - left_up_leg.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_leg") == 0) return right_leg.GetComponent<Rigidbody>().worldCenterOfMass - right_up_leg.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("left_arm") == 0) return left_arm.GetComponent<Rigidbody>().worldCenterOfMass - spine_1.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_arm") == 0) return right_arm.GetComponent<Rigidbody>().worldCenterOfMass - spine_1.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("left_forearm") == 0) return left_forearm.GetComponent<Rigidbody>().worldCenterOfMass - left_arm.GetComponent<Rigidbody>().worldCenterOfMass;
+        else if (limb_part.CompareTo("right_forearm") == 0) return right_forearm.GetComponent<Rigidbody>().worldCenterOfMass - right_arm.GetComponent<Rigidbody>().worldCenterOfMass;
         else if (limb_part.CompareTo("spine_1") == 0) return spine_1.GetComponent<Rigidbody>().worldCenterOfMass - root_joint.GetComponent<Rigidbody>().worldCenterOfMass;
 
-        else return UnityEngine.Vector3.zero;
+        else return Vector3.zero;
     }
 
     //https://academic.oup.com/eurjpc/article/25/5/522/5926154#google_vignette
@@ -293,9 +300,9 @@ public class EnergyExpenditure : MonoBehaviour
 
         return final_energy;
     }
-    private Dictionary<string, UnityEngine.Vector3> Store_limb_com()
+    private Dictionary<string, Vector3> Store_limb_com()
     {
-        Dictionary<string, UnityEngine.Vector3> limb_com = new()
+        Dictionary<string, Vector3> limb_com = new()
         {
             ["left_up_leg"] = (left_up_leg.transform.position + left_leg.transform.position) / 2f,
             ["right_up_leg"] = (right_up_leg.transform.position + right_leg.transform.position) / 2f,
@@ -311,9 +318,9 @@ public class EnergyExpenditure : MonoBehaviour
         return limb_com;
     }
 
-    private Dictionary<string, UnityEngine.Quaternion> Store_limb_rotation()
+    private Dictionary<string, Quaternion> Store_limb_rotation()
     {
-        Dictionary<string, UnityEngine.Quaternion> limb_rotation = new()
+        Dictionary<string, Quaternion> limb_rotation = new()
         {
             //find the initial rotations of the limbs
             ["left_up_leg"] = left_up_leg.transform.rotation,
