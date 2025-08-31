@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.WebSockets;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -34,7 +35,7 @@ public class AvatarController : MonoBehaviour
     public bool has_over_rotated = false;
 
     public bool completed_pose = false;
-    
+
     [Header("Energy Script")]
     [SerializeField] private EnergyExpenditure energy_script;
 
@@ -46,6 +47,18 @@ public class AvatarController : MonoBehaviour
 
     //file to output towards
     string final_position_file;
+    string saved_poses_file;
+
+    //starting positions of the targets
+    private Quaternion hip_rotation;
+    private Vector3 body_pos;
+
+    void Awake()
+    {
+        //store the starting positions of the avatars
+        hip_rotation = hip_target.rotation;
+        body_pos = static_animator.transform.position;
+    }
 
     // Start is called before the first frame update    
     void Start()
@@ -62,9 +75,12 @@ public class AvatarController : MonoBehaviour
         direction_file = controller_path + "/move_direction.csv";
         final_position_file = controller_path + "/final_position.csv";
 
+        //test file
+        saved_poses_file = controller_path + "/saved_poses.csv";
+
         //tests
-        //StartCoroutine(Read_movement_file(11));
-        Generate_Movement_File(6);
+        StartCoroutine(Read_movement_file(11));
+        //Generate_Movement_File(6);
         //StartCoroutine(Generate_Movement(5));
 
     }
@@ -528,4 +544,41 @@ public class AvatarController : MonoBehaviour
 
     }
 
+    //save the current positions into a file
+    public void Save_Position(string pose_name)
+    {
+        using (var file_writer = new StreamWriter(saved_poses_file, true))
+        {
+            //store change in transform
+            Vector3 l_hand_value = left_hand_target.transform.localPosition;
+            Vector3 r_hand_value = right_hand_target.transform.localPosition;
+
+            //find change in transform
+            Vector3 body_delta_value = static_animator.transform.position - body_pos;
+            Tuple<Vector3, float> body_pos_value = new(body_delta_value, static_animator.transform.rotation.y);
+
+            //find change in rotation
+            Quaternion hip_value = hip_target.transform.rotation * Quaternion.Inverse(hip_rotation);
+
+            //store change in transform
+            Vector3 l_leg_value = left_leg_target.transform.localPosition;
+            Vector3 r_leg_value = right_leg_target.transform.localPosition;
+
+            //the move directions
+            string title = pose_name + "\n";
+            string left_hand_move = string.Format("0,{0},{1},{2}\n", l_hand_value.x, l_hand_value.y, l_hand_value.z);
+            string right_hand_move = string.Format("1,{0},{1},{2}\n", r_hand_value.x, r_hand_value.y, r_hand_value.z);
+            string hip_move = string.Format("2,{0},{1},{2}\n", hip_value.x, hip_value.y, hip_value.z);
+            string left_leg_move = string.Format("3,{0},{1},{2}\n", l_leg_value.x, l_leg_value.y, l_leg_value.z);
+            string right_leg_move = string.Format("4,{0},{1},{2}\n", r_leg_value.x, r_leg_value.y, r_leg_value.z);
+            string body_move = string.Format("5,{0},{1},{2}\n", body_pos_value.Item1.x, body_pos_value.Item2, body_pos_value.Item1.z);
+
+            //all of it together
+            string data = string.Format("{0}{1}{2}{3}{4}{5}{6}\n", title, left_hand_move, right_hand_move, hip_move, left_leg_move, right_leg_move, body_move);
+
+            file_writer.WriteLine(data);
+
+            Debug.Log("Stored " + pose_name + " into saved_poses.csv!");
+        }
+    }
 }
