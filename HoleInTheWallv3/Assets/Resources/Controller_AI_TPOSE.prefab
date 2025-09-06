@@ -6206,7 +6206,7 @@ GameObject:
   - component: {fileID: 764744671578402714}
   - component: {fileID: 3925751003739070687}
   m_Layer: 0
-  m_Name: Controller_AI
+  m_Name: Controller_AI_TPOSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

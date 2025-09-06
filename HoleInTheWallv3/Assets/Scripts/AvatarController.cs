@@ -58,6 +58,7 @@ public class AvatarController : MonoBehaviour
         //store the starting positions of the avatars
         hip_rotation = hip_target.rotation;
         body_pos = static_animator.transform.position;
+
     }
 
     // Start is called before the first frame update    

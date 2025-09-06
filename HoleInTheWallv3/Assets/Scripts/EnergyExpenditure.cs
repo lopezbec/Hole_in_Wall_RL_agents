@@ -124,6 +124,7 @@ public class EnergyExpenditure : MonoBehaviour
 
         //find Eint(t) when t = 0
         initial_int_energy = Calculate_energy_transfer();
+
     }
 
     //random test functions for clicking during runtime
