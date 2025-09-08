@@ -149,9 +149,10 @@ public class EnergyExpenditure : MonoBehaviour
         float final_energy = Alleviate_Energy(transition_energy + maintenance_energy);
 
         //test statements
-        Debug.Log("This is the transition work : " + transition_energy);
+        Debug.Log("This is the external work : " + external_work);
+        Debug.Log("This is internal work : " + internal_work);
         Debug.Log("This is the maintenance : " + maintenance_energy);
-        Debug.Log("This is the final energy calc : " + final_energy);
+        Debug.Log("This is the final energy calc : " + final_energy + "\n");
 
         return final_energy;
     }
@@ -189,7 +190,9 @@ public class EnergyExpenditure : MonoBehaviour
 
         foreach (string limb in limb_names)
         {
-            combined_int_energy += Energy_transfer_helper(limb);
+            if (limb.CompareTo("spine_1") != 0)
+                combined_int_energy += Energy_transfer_helper(limb);
+           
         }
 
         return combined_int_energy;
@@ -239,6 +242,8 @@ public class EnergyExpenditure : MonoBehaviour
                 gyration_squared.x * a_velocity.x * a_velocity.x +
                 gyration_squared.y * a_velocity.y * a_velocity.y +
                 gyration_squared.z * a_velocity.z * a_velocity.z;
+
+        Debug.Log(string.Format("{0} has {1} second part", limb_part, (0.5f * mass * g2_av2)));
 
         //calculate the interal energy - not isolating negative and positive work
         return Math.Abs((0.5f * mass * r_velocity * r_velocity) + (0.5f * mass * g2_av2));
@@ -305,14 +310,14 @@ public class EnergyExpenditure : MonoBehaviour
     {
         Dictionary<string, Vector3> limb_com = new()
         {
-            ["left_up_leg"] = (left_up_leg.transform.position + left_leg.transform.position) / 2f,
-            ["right_up_leg"] = (right_up_leg.transform.position + right_leg.transform.position) / 2f,
-            ["left_leg"] = (left_leg.transform.position + left_foot.transform.position) / 2f,
-            ["right_leg"] = (right_leg.transform.position + right_foot.transform.position) / 2f,
-            ["left_arm"] = (left_arm.transform.position + left_forearm.transform.position) / 2f,
-            ["right_arm"] = (right_arm.transform.position + right_forearm.transform.position) / 2f,
-            ["left_forearm"] = (left_forearm.transform.position + left_hand.transform.position) / 2f,
-            ["right_forearm"] = (right_forearm.transform.position + right_hand.transform.position) / 2f,
+            ["left_up_leg"] = (left_up_leg.transform.localPosition + left_leg.transform.localPosition) / 2f,
+            ["right_up_leg"] = (right_up_leg.transform.localPosition + right_leg.transform.localPosition) / 2f,
+            ["left_leg"] = (left_leg.transform.localPosition + left_foot.transform.localPosition) / 2f,
+            ["right_leg"] = (right_leg.transform.localPosition + right_foot.transform.localPosition) / 2f,
+            ["left_arm"] = (left_arm.transform.localPosition + left_forearm.transform.localPosition) / 2f,
+            ["right_arm"] = (right_arm.transform.localPosition + right_forearm.transform.localPosition) / 2f,
+            ["left_forearm"] = (left_forearm.transform.localPosition + left_hand.transform.localPosition) / 2f,
+            ["right_forearm"] = (right_forearm.transform.localPosition + right_hand.transform.localPosition) / 2f,
             ["spine_1"] = com_pos
         };
 
