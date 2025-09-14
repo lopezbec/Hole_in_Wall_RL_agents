@@ -162,7 +162,10 @@ public class EnergyExpenditure : MonoBehaviour
     // disregard time, not a factor in calculations here. 
     // units : kg(m)^2 / (s)^2 == Joules
     private float Calculate_COM_WB()
-    {
+    {   
+        //ignore the com change if pelvis is on the ground, since its less "difficult" than the other y changes
+        if (root_joint.GetComponent<PelvisCollider>().is_grounded) return initial_com_energy;
+
         Vector3 com_velocity;
 
         //recompute com position
@@ -172,8 +175,11 @@ public class EnergyExpenditure : MonoBehaviour
         if (delta_time == 0) com_velocity = new(0f, 0f, 0f);
         else com_velocity = (com_pos - initial_com_pos) / delta_time;
 
-        float l_velocity = com_velocity.magnitude;
-
+        //float l_velocity = com_velocity.magnitude;
+        //ignore the changes of x and z of com, since it doesnt measure "difficulty" of a pose
+        float l_velocity = com_velocity.y;
+        //Debug.Log("Velocity is " + l_velocity);
+        
         //find height from the floor
         float height = com_pos.y - floor.position.y;
 
@@ -243,7 +249,7 @@ public class EnergyExpenditure : MonoBehaviour
                 gyration_squared.y * a_velocity.y * a_velocity.y +
                 gyration_squared.z * a_velocity.z * a_velocity.z;
 
-        Debug.Log(string.Format("{0} has {1} second part", limb_part, (0.5f * mass * g2_av2)));
+        //Debug.Log(string.Format("{0} has {1} second part", limb_part, (0.5f * mass * g2_av2)));
 
         //calculate the interal energy - not isolating negative and positive work
         return Math.Abs((0.5f * mass * r_velocity * r_velocity) + (0.5f * mass * g2_av2));
