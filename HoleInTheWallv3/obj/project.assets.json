@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Dependencies.csproj",
-      "projectName": "Dependencies",
-      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Dependencies.csproj",
+      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj",
+      "projectName": "Gleechi.VirtualGrasp.Editor",
+      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj",
       "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
       "projectStyle": "PackageReference",

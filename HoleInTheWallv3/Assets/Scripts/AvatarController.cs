@@ -50,13 +50,13 @@ public class AvatarController : MonoBehaviour
     string saved_poses_file;
 
     //starting positions of the targets
-    private Quaternion hip_rotation;
+    private Vector3 hip_rotation;
     private Vector3 body_pos;
 
     void Awake()
     {
         //store the starting positions of the avatars
-        hip_rotation = hip_target.rotation;
+        hip_rotation = hip_target.eulerAngles;
         body_pos = static_animator.transform.position;
 
     }
@@ -80,8 +80,8 @@ public class AvatarController : MonoBehaviour
         saved_poses_file = controller_path + "/saved_poses.csv";
 
         //tests
-        StartCoroutine(Read_movement_file(11));
         //Generate_Movement_File(6);
+        StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
 
     }
@@ -556,10 +556,10 @@ public class AvatarController : MonoBehaviour
 
             //find change in transform
             Vector3 body_delta_value = static_animator.transform.position - body_pos;
-            Tuple<Vector3, float> body_pos_value = new(body_delta_value, static_animator.transform.rotation.y);
+            Tuple<Vector3, float> body_pos_value = new(body_delta_value, static_animator.transform.eulerAngles.y);
 
             //find change in rotation
-            Quaternion hip_value = hip_target.transform.rotation * Quaternion.Inverse(hip_rotation);
+            Vector3 hip_value = hip_target.transform.eulerAngles - hip_rotation;
 
             //store change in transform
             Vector3 l_leg_value = left_leg_target.transform.localPosition;
