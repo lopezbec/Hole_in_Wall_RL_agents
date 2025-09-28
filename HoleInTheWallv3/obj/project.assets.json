@@ -1,132 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.1": {
-      "Dependencies/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "VG_Scripts": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Dependencies.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Dependencies.dll": {}
-        }
-      },
-      "Gleechi.VirtualGrasp.Editor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "VG_Scripts": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Gleechi.VirtualGrasp.Editor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Gleechi.VirtualGrasp.Editor.dll": {}
-        }
-      },
-      "Gleechi.VirtualGrasp.Onboarding/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Gleechi.VirtualGrasp.Onboarding.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Gleechi.VirtualGrasp.Onboarding.dll": {}
-        }
-      },
-      "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.dll": {}
-        }
-      },
-      "Unity.XR.Interaction.Toolkit.Samples.StarterAssets/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Unity.XR.Interaction.Toolkit.Samples.StarterAssets.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Unity.XR.Interaction.Toolkit.Samples.StarterAssets.dll": {}
-        }
-      },
-      "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.dll": {}
-        }
-      },
-      "VG_Scripts/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/VG_Scripts.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/VG_Scripts.dll": {}
-        }
-      }
-    }
+    ".NETStandard,Version=v2.1": {}
   },
-  "libraries": {
-    "Dependencies/1.0.0": {
-      "type": "project",
-      "path": "Dependencies.csproj",
-      "msbuildProject": "Dependencies.csproj"
-    },
-    "Gleechi.VirtualGrasp.Editor/1.0.0": {
-      "type": "project",
-      "path": "Gleechi.VirtualGrasp.Editor.csproj",
-      "msbuildProject": "Gleechi.VirtualGrasp.Editor.csproj"
-    },
-    "Gleechi.VirtualGrasp.Onboarding/1.0.0": {
-      "type": "project",
-      "path": "Gleechi.VirtualGrasp.Onboarding.csproj",
-      "msbuildProject": "Gleechi.VirtualGrasp.Onboarding.csproj"
-    },
-    "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator/1.0.0": {
-      "type": "project",
-      "path": "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj",
-      "msbuildProject": "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj"
-    },
-    "Unity.XR.Interaction.Toolkit.Samples.StarterAssets/1.0.0": {
-      "type": "project",
-      "path": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj",
-      "msbuildProject": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj"
-    },
-    "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor/1.0.0": {
-      "type": "project",
-      "path": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
-      "msbuildProject": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj"
-    },
-    "VG_Scripts/1.0.0": {
-      "type": "project",
-      "path": "VG_Scripts.csproj",
-      "msbuildProject": "VG_Scripts.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.1": [
-      "Dependencies >= 1.0.0",
-      "Gleechi.VirtualGrasp.Editor >= 1.0.0",
-      "Gleechi.VirtualGrasp.Onboarding >= 1.0.0",
-      "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator >= 1.0.0",
-      "Unity.XR.Interaction.Toolkit.Samples.StarterAssets >= 1.0.0",
-      "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor >= 1.0.0",
-      "VG_Scripts >= 1.0.0"
-    ]
+    ".NETStandard,Version=v2.1": []
   },
   "packageFolders": {
     "C:\\Users\\W\\.nuget\\packages\\": {}
@@ -134,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Assembly-CSharp.csproj",
-      "projectName": "Assembly-CSharp",
-      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Assembly-CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj",
+      "projectName": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets",
+      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj",
       "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\obj\\",
+      "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -152,29 +31,7 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Dependencies.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Dependencies.csproj"
-            },
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj"
-            },
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Onboarding.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Onboarding.csproj"
-            },
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj"
-            },
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj"
-            },
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj"
-            },
-            "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\VG_Scripts.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\VG_Scripts.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

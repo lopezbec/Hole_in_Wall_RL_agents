@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = 
-build_property.ProjectDir = C:\Users\W\Documents\GitHub\HoleInTheWall_VRv3\HoleInTheWallv3\
+build_property.ProjectDir = C:\Users\W\Documents\GitHub\Hole_in_Wall_RL_agents\HoleInTheWallv3\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false

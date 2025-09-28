@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {}
+    "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {
+    "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
+        "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
         "projectName": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor",
-        "projectPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
+        "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
         "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\W\\Documents\\GitHub\\HoleInTheWall_VRv3\\HoleInTheWallv3\\obj\\",
+        "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config"
