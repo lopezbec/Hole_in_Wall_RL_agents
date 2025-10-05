@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 public class AvatarController : MonoBehaviour
 {
-    private readonly string prefab_path = "Controller_AI";
+    private readonly string prefab_path = "Controller_AI_APOSE";
     [SerializeField] private GameObject static_animator;
 
     [Header("Limb Targets")]
@@ -35,6 +35,7 @@ public class AvatarController : MonoBehaviour
     public bool has_over_rotated = false;
 
     public bool completed_pose = false;
+    public bool has_collided = false;
 
     [Header("Energy Script")]
     [SerializeField] private EnergyExpenditure energy_script;
@@ -81,7 +82,7 @@ public class AvatarController : MonoBehaviour
 
         //tests
         //Generate_Movement_File(6);
-        StartCoroutine(Read_movement_file(11));
+        //StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
 
     }
