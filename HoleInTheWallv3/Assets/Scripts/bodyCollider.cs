@@ -5,6 +5,7 @@ using UnityEngine;
 public class bodyCollider : MonoBehaviour
 {
     [SerializeField] private AvatarController avatar_script;
+    [SerializeField] private TrainAvatar trainer_script;
     private bool hasCollided = false;
     public bool isTestObject = false;
 
@@ -12,6 +13,11 @@ public class bodyCollider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //search for ML ancestor
+        if (isTestObject)
+        {
+            trainer_script = GetComponentInParent<TrainAvatar>();
+        }
     }
 
     // Update is called once per frame
@@ -42,6 +48,7 @@ public class bodyCollider : MonoBehaviour
             {
                 hasCollided = true;
                 avatar_script.has_collided = true;
+                trainer_script.Collision_punish();
             }
         }
 

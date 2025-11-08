@@ -12,6 +12,7 @@ public class AvatarController : MonoBehaviour
 {
     private readonly string prefab_path = "Controller_AI_APOSE";
     [SerializeField] private GameObject static_animator;
+    public GameObject ragdoll;
 
     [Header("Limb Targets")]
     [SerializeField] private Transform right_hand_target;
@@ -38,7 +39,8 @@ public class AvatarController : MonoBehaviour
     public bool has_collided = false;
 
     [Header("Energy Script")]
-    [SerializeField] private EnergyExpenditure energy_script;
+    public EnergyExpenditure energy_script;
+    
 
     private Vector3 prefab_position;
 
@@ -259,7 +261,7 @@ public class AvatarController : MonoBehaviour
 
         //move the hand based on local values; transformation based off the parents
         UnityEngine.Vector3 target_position = new(x_pos, y_pos, z_pos);
-        target.localPosition = target_position;
+        target.localPosition += target_position;
 
         //check if within radius
         if (!arm_span.bounds.Contains(target.position))
@@ -382,7 +384,7 @@ public class AvatarController : MonoBehaviour
 
         //move the leg based on local values; transformation based off the parents
         UnityEngine.Vector3 target_position = new(x_pos, y_pos, z_pos);
-        target.localPosition = target_position;
+        target.localPosition += target_position;
 
         //check if within radius
         if (!leg_span.bounds.Contains(target.position))

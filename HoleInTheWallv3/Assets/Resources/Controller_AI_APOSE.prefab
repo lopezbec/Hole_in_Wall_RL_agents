@@ -1563,6 +1563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   static_animator: {fileID: 38037948211252715}
+  ragdoll: {fileID: 7489497528172326611}
   right_hand_target: {fileID: 660764583088424273}
   left_hand_target: {fileID: 2524145067508268035}
   hip_target: {fileID: 23376692346233015}
@@ -1815,6 +1816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &8252426766140342987
 MonoBehaviour:
@@ -2182,6 +2184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &3254236325241869274
 MonoBehaviour:
@@ -3127,6 +3130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &5312935497262165936
 MonoBehaviour:
@@ -3702,6 +3706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &6413275767677086961
 MonoBehaviour:
@@ -3975,6 +3980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &7950363474503538580
 MonoBehaviour:
@@ -5765,6 +5771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &1735208402575464649
 MonoBehaviour:
@@ -6082,6 +6089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!1 &6274778933236988987
 GameObject:
@@ -6634,6 +6642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &6219800488377415343
 MonoBehaviour:
@@ -6939,6 +6948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &5090878795188069830
 MonoBehaviour:
@@ -7371,6 +7381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!1 &7523152152293985004
 GameObject:
@@ -7669,6 +7680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &3105745366074424632
 MonoBehaviour:
@@ -7846,6 +7858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!1 &8105435247773473039
 GameObject:
@@ -8051,6 +8064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &6555096321843908264
 MonoBehaviour:
@@ -8641,6 +8655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar_script: {fileID: 6429481963623256011}
+  trainer_script: {fileID: 0}
   isTestObject: 1
 --- !u!114 &4822475996581358340
 MonoBehaviour:

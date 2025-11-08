@@ -153,7 +153,7 @@ public class EnergyExpenditure : MonoBehaviour
         //Debug.Log("This is the external work : " + external_work);
         //Debug.Log("This is internal work : " + internal_work);
         //Debug.Log("This is the maintenance : " + maintenance_energy);
-        Debug.Log("This is the final energy calc : " + final_energy + "\n");
+        //Debug.Log("This is the final energy calc : " + final_energy + "\n");
 
         return final_energy;
     }

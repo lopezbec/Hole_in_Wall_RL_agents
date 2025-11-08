@@ -25,4 +25,5 @@ public class WallRemoveTrigger : MonoBehaviour
             wall_complete = true;
         }
     }
+    
 }

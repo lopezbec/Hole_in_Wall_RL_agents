@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour
@@ -23,19 +24,14 @@ public class ObstacleGenerator : MonoBehaviour
     private float move_spd = .1f;
     public AvatarController avatar_script;
 
+    private List<int[,]> test_walls = new();
+
     // Start is called before the first frame update
     void Start()
     {
-        int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                                {1, 1, 1, 1, 0, 1, 1, 1, 1, 1},
-                                {1, 1, 0, 1, 1, 1, 1, 1, 1, 1},
-                                {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-                                {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
-                                {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
-                                {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-                                {1, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-                                {0, 1, 0, 1, 1, 1, 1, 1, 1, 1}
-                            };
+        generate_test_walls();
+
+        int[,] test_wall = select_random_test(-1);
 
         Build_wall(test_wall);
 
@@ -54,6 +50,14 @@ public class ObstacleGenerator : MonoBehaviour
     void Update()
     {
         Move_wall();
+    }
+
+    //for ML wall reset
+    public void Reset_Wall()
+    {
+        int[,] test_wall = select_random_test(-1);
+        Build_wall(test_wall);
+        this.gameObject.SetActive(true);
     }
 
     public void Set_dim()
@@ -263,6 +267,52 @@ public class ObstacleGenerator : MonoBehaviour
 
     private void Move_wall()
     {
-        if(avatar_script.completed_pose) transform.position = new(transform.position.x, transform.position.y, transform.position.z - move_spd);
+        if (avatar_script.completed_pose) transform.position = new(transform.position.x, transform.position.y, transform.position.z - move_spd);
     }
+
+    private int[,] select_random_test(int test_id)
+    {
+        //select the wall if given valid index
+        if (test_id >= 0)
+        {
+            if (test_id < test_walls.Count)
+            {
+                return test_walls[test_id];
+            }
+        }
+
+        System.Random rand = new();
+
+        //when test id is -1 or lower, do random select
+        return test_walls[rand.Next(0, test_walls.Count)];
+    }
+
+    private void generate_test_walls()
+    {
+        //assuming the default size
+
+        //default pose
+        int[,] wall_0 = {   { 1,1,1,1,1,1,1,1,1,1},
+                            { 1,1,1,1,0,1,1,1,1,1},
+                            { 1,1,1,1,0,1,1,1,1,1},
+                            { 1,1,1,0,0,0,1,1,1,1},
+                            { 1,1,1,0,0,0,1,1,1,1},
+                            { 1,1,1,0,0,0,1,1,1,1},
+                            { 1,1,1,0,0,0,1,1,1,1},
+                            { 1,1,1,0,0,0,1,1,1,1},
+                            { 1,1,1,0,0,0,1,1,1,1} };
+
+        test_walls.Add(wall_0);
+    }
+
+    // int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    //                         {1, 1, 1, 1, 0, 1, 1, 1, 1, 1},
+    //                         {1, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {1, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1}
+    //                     };
 }

@@ -15,6 +15,7 @@ TagManager:
   - XMark
   - EndMenu
   - HAND
+  - ML_Script
   layers:
   - Default
   - TransparentFX
