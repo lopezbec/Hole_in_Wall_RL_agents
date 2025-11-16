@@ -31,7 +31,7 @@ public class TrainAvatar : Agent
 
     //private bodyCollider[] limb_positions;
     private bool is_waiting_episode_end = false;
-    private float move_scale = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,16 +106,16 @@ public class TrainAvatar : Agent
         Check_Overextension();
 
         //move left leg
-        float left_leg_x = actions.ContinuousActions[9] * move_scale; 
-        float left_leg_y = actions.ContinuousActions[10] * move_scale;
-        float left_leg_z = actions.ContinuousActions[11] * move_scale;
+        float left_leg_x = actions.ContinuousActions[9];
+        float left_leg_y = actions.ContinuousActions[10];
+        float left_leg_z = actions.ContinuousActions[11];
         avatar_script.Move_legs(left_leg_x, left_leg_y, left_leg_z, false);
         Check_Overextension();
 
         //move right leg
-        float right_leg_x = actions.ContinuousActions[12] * move_scale;
-        float right_leg_y = actions.ContinuousActions[13] * move_scale;
-        float right_leg_z = actions.ContinuousActions[14] * move_scale;
+        float right_leg_x = actions.ContinuousActions[12];
+        float right_leg_y = actions.ContinuousActions[13];
+        float right_leg_z = actions.ContinuousActions[14];
         avatar_script.Move_legs(right_leg_x, right_leg_y, right_leg_z, true);
         Check_Overextension();
 
@@ -147,13 +147,19 @@ public class TrainAvatar : Agent
 
             //lower the energy, the more reward. add small number to ensure no 0 division
             float reward = 1000 / (energy_calculated + 0.0001f);
-            
+
 
             //reward for not touching the walls
             if (!avatar_script.has_collided)
             {
-                //pass reward
-                AddReward(reward);
+
+                //only give reward if not grounded/sitting for this training
+                if (!avatar_script.energy_script.root_joint.GetComponent<PelvisCollider>().is_grounded)
+                {
+                    //pass reward
+                    AddReward(reward);
+                }
+
                 floor.GetComponent<MeshRenderer>().material = pass_material;
             }
 
@@ -173,7 +179,7 @@ public class TrainAvatar : Agent
 
     private void Check_Overextension()
     {
-        float penalty = -20f;
+        float penalty = -5f;
 
         if (avatar_script.has_over_moved) AddReward(penalty);
         if (avatar_script.has_over_rotated) AddReward(penalty);
@@ -181,9 +187,6 @@ public class TrainAvatar : Agent
 
     public override void OnEpisodeBegin()
     {
-        //gradually let the movement be increased, such that the agent might understand the limits
-        //move_scale = Mathf.Min(1.0f, move_scale + 0.0005f);
-
         ResetEnvironment();
         StartCoroutine(RequestDecisionAfterDelay(0.1f));
     }

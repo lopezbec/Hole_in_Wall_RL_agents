@@ -40,7 +40,7 @@ public class AvatarController : MonoBehaviour
 
     [Header("Energy Script")]
     public EnergyExpenditure energy_script;
-    
+
 
     private Vector3 prefab_position;
 
@@ -53,15 +53,23 @@ public class AvatarController : MonoBehaviour
     string saved_poses_file;
 
     //starting positions of the targets
+    private Vector3 left_hand_pos;
+    private Vector3 right_hand_pos;
+    private Vector3 left_leg_pos;
+    private Vector3 right_leg_pos;
     private Vector3 hip_rotation;
     private Vector3 body_pos;
 
+
     void Awake()
-    {
+    {   
         //store the starting positions of the avatars
         hip_rotation = hip_target.eulerAngles;
         body_pos = static_animator.transform.position;
-
+        left_hand_pos = left_hand_target.localPosition;
+        right_hand_pos = right_hand_target.localPosition;
+        left_leg_pos = left_leg_target.localPosition;
+        right_leg_pos = right_leg_target.localPosition;
     }
 
     // Start is called before the first frame update    
@@ -84,7 +92,7 @@ public class AvatarController : MonoBehaviour
 
         //tests
         //Generate_Movement_File(6);
-        //StartCoroutine(Read_movement_file(11));
+        StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
 
     }
@@ -554,8 +562,8 @@ public class AvatarController : MonoBehaviour
         using (var file_writer = new StreamWriter(saved_poses_file, true))
         {
             //store change in transform
-            Vector3 l_hand_value = left_hand_target.transform.localPosition;
-            Vector3 r_hand_value = right_hand_target.transform.localPosition;
+            Vector3 l_hand_value = left_hand_target.transform.localPosition - left_hand_pos;
+            Vector3 r_hand_value = right_hand_target.transform.localPosition - right_hand_pos;
 
             //find change in transform
             Vector3 body_delta_value = static_animator.transform.position - body_pos;
@@ -565,8 +573,8 @@ public class AvatarController : MonoBehaviour
             Vector3 hip_value = hip_target.transform.eulerAngles - hip_rotation;
 
             //store change in transform
-            Vector3 l_leg_value = left_leg_target.transform.localPosition;
-            Vector3 r_leg_value = right_leg_target.transform.localPosition;
+            Vector3 l_leg_value = left_leg_target.transform.localPosition - left_leg_pos;
+            Vector3 r_leg_value = right_leg_target.transform.localPosition - right_leg_pos;
 
             //the move directions
             string title = pose_name + "\n";
