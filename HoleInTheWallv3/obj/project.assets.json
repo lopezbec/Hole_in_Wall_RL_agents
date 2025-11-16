@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj",
-      "projectName": "VG_Scripts",
-      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj",
+      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
+      "projectName": "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor",
+      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj",
       "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
       "projectStyle": "PackageReference",

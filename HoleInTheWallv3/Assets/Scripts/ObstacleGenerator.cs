@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -25,13 +26,25 @@ public class ObstacleGenerator : MonoBehaviour
     public AvatarController avatar_script;
 
     private List<int[,]> test_walls = new();
+    private readonly string wall_save_file = Application.dataPath + "/Scripts/Reinforcement_Learning/wall_tests.txt";
 
     // Start is called before the first frame update
     void Start()
     {
         generate_test_walls();
+        //int[,] test_wall = select_random_test(-1);
 
-        int[,] test_wall = select_random_test(-1);
+        //full wall for sculpting new holes
+        int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+                        };
 
         Build_wall(test_wall);
 
@@ -49,7 +62,7 @@ public class ObstacleGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move_wall();
+        //Move_wall();
     }
 
     //for ML wall reset
@@ -287,6 +300,65 @@ public class ObstacleGenerator : MonoBehaviour
         return test_walls[rand.Next(0, test_walls.Count)];
     }
 
+    // int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    //                         {1, 1, 1, 1, 0, 1, 1, 1, 1, 1},
+    //                         {1, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {1, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1}
+    //                     };
+
+    public void save_wall(string pose_name)
+    {
+        //save the current wall into the test walls
+        int[,] saved_wall = new int[wall_row, wall_col];
+
+        Transform[] wall_children = GetComponentsInChildren<Transform>();
+
+        foreach (Transform child in wall_children)
+        {
+            if (child != transform) // check if it's not the parent itself
+            {
+                string[] parts = child.name.Split(',');
+
+                int child_row = int.Parse(parts[0]);
+                int child_col = int.Parse(parts[1]);
+
+                saved_wall[child_row, child_col] = 1;
+            }
+        }
+
+        //write to file
+        using (var file_writer = new StreamWriter(wall_save_file, true))
+        {
+            file_writer.WriteLine("// Wall for pose: " + pose_name + "\n");
+
+            for (int i = 0; i < wall_row; i++)
+            {
+                if (i == 0) file_writer.Write("{"); //start of wall
+
+                for (int j = 0; j < wall_col; j++)
+                {
+                    if (j == 0) file_writer.Write("{"); //start of row
+                    file_writer.Write(saved_wall[i, j]);
+                    if (j == wall_col - 1) file_writer.Write("}"); //end of row
+
+                    if (j < wall_col - 1) file_writer.Write(","); //comma separation except last
+                }
+                if (i < wall_row - 1) file_writer.Write(","); //comma separation between rows
+                else file_writer.Write("}\n\n"); //new line after last row
+            }
+
+        }
+
+        Debug.Log("Saved wall for pose: " + pose_name);
+    }
+
+
+
     private void generate_test_walls()
     {
         //assuming the default size
@@ -303,16 +375,26 @@ public class ObstacleGenerator : MonoBehaviour
                             { 1,1,1,0,0,0,1,1,1,1} };
 
         test_walls.Add(wall_0);
-    }
 
-    // int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-    //                         {1, 1, 1, 1, 0, 1, 1, 1, 1, 1},
-    //                         {1, 1, 0, 1, 1, 1, 1, 1, 1, 1},
-    //                         {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
-    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
-    //                         {0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-    //                         {1, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-    //                         {0, 1, 0, 1, 1, 1, 1, 1, 1, 1}
-    //                     };
+        //Hand Side Right
+        int[,] wall_1 = {{1,1,1,1,1,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,0,0,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1}};
+        test_walls.Add(wall_1);
+        
+        //Hand Side Left
+        int[,] wall_2 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
+        test_walls.Add(wall_2);
+
+        //T-Pose
+        int[,] wall_3 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,0,0,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
+        test_walls.Add(wall_3);
+
+        //Right leg lean forward
+        int[,] wall_4 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,0,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
+        test_walls.Add(wall_4);
+
+        //Left leg lean forward
+        int[,] wall_5 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,0,0,0,0,0,0,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1}};
+        test_walls.Add(wall_5);
+        
+    }
 }
