@@ -92,7 +92,7 @@ public class AvatarController : MonoBehaviour
 
         //tests
         //Generate_Movement_File(6);
-        StartCoroutine(Read_movement_file(11));
+        //StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
 
     }

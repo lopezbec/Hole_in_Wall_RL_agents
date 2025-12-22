@@ -26,27 +26,35 @@ public class ObstacleGenerator : MonoBehaviour
     public AvatarController avatar_script;
 
     private List<int[,]> test_walls = new();
+    private int test_id = -1;
+    private static int[,] full_wall_matrix = {  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                                                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+                                             };
     private readonly string wall_save_file = Application.dataPath + "/Scripts/Reinforcement_Learning/wall_tests.txt";
 
     // Start is called before the first frame update
     void Start()
     {
         generate_test_walls();
-        //int[,] test_wall = select_random_test(-1);
+
+        //random test wall
+        //int[,] obstacle = select_random_test(test_id);                    
+        
+        //specific test wall
+        test_id = 0;                                                        
+        int[,] obstacle = select_random_test(test_id);                     
 
         //full wall for sculpting new holes
-        int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-                        };
+        // int[,] obstacle =  full_wall_matrix;
 
-        Build_wall(test_wall);
+        Build_wall(obstacle);
 
         // float[,] block_param = {    {.25f, 0, 0, .25f, .5f},
         //                             {0, .5f, 0, .25f, .5f},
@@ -62,13 +70,13 @@ public class ObstacleGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move_wall();
+        Move_wall();
     }
 
     //for ML wall reset
     public void Reset_Wall()
     {
-        int[,] test_wall = select_random_test(-1);
+        int[,] test_wall = select_random_test(test_id);
         Build_wall(test_wall);
         this.gameObject.SetActive(true);
     }
@@ -238,6 +246,7 @@ public class ObstacleGenerator : MonoBehaviour
             }
         }
     }
+
     public int Get_col()
     {
         return wall_col;
@@ -283,14 +292,14 @@ public class ObstacleGenerator : MonoBehaviour
         if (avatar_script.completed_pose) transform.position = new(transform.position.x, transform.position.y, transform.position.z - move_spd);
     }
 
-    private int[,] select_random_test(int test_id)
+    private int[,] select_random_test(int wall_id)
     {
         //select the wall if given valid index
-        if (test_id >= 0)
+        if (wall_id >= 0)
         {
-            if (test_id < test_walls.Count)
+            if (wall_id < test_walls.Count)
             {
-                return test_walls[test_id];
+                return test_walls[wall_id];
             }
         }
 
@@ -376,25 +385,37 @@ public class ObstacleGenerator : MonoBehaviour
 
         test_walls.Add(wall_0);
 
-        //Hand Side Right
-        int[,] wall_1 = {{1,1,1,1,1,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,0,0,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1}};
+        //default pose but shifted to the left
+        int[,] wall_1 = {   { 1,1,1,1,1,1,1,1,1,1},
+                            { 1,1,0,1,1,1,1,1,1,1},
+                            { 1,1,0,1,1,1,1,1,1,1},
+                            { 1,0,0,0,1,1,1,1,1,1},
+                            { 1,0,0,0,1,1,1,1,1,1},
+                            { 1,0,0,0,1,1,1,1,1,1},
+                            { 1,0,0,0,1,1,1,1,1,1},
+                            { 1,0,0,0,1,1,1,1,1,1},
+                            { 1,0,0,0,1,1,1,1,1,1} };
         test_walls.Add(wall_1);
+
+        //Hand Side Right
+        int[,] wall_2 = {{1,1,1,1,1,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,0,0,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1}};
+        test_walls.Add(wall_2);
         
         //Hand Side Left
-        int[,] wall_2 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
-        test_walls.Add(wall_2);
-
-        //T-Pose
-        int[,] wall_3 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,0,0,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
+        int[,] wall_3 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
         test_walls.Add(wall_3);
 
-        //Right leg lean forward
-        int[,] wall_4 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,0,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
+        //T-Pose
+        int[,] wall_4 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,0,0,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
         test_walls.Add(wall_4);
 
-        //Left leg lean forward
-        int[,] wall_5 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,0,0,0,0,0,0,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1}};
+        //Right leg lean forward
+        int[,] wall_5 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,0,0,0,0,0,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1},{1,1,1,1,0,0,1,1,1}};
         test_walls.Add(wall_5);
+
+        //Left leg lean forward
+        int[,] wall_6 = {{1,1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,0,0,0,0,0,0,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1},{1,1,1,0,0,1,1,1,1}};
+        test_walls.Add(wall_6);
         
     }
 }

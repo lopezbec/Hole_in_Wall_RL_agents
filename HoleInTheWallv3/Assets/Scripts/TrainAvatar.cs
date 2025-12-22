@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using Unity.VisualScripting;
-using UnityEngine.UIElements;
 using TMPro;
-using UnityEngine.Rendering;
+using System.Runtime.ExceptionServices;
 
 public class TrainAvatar : Agent
 {
@@ -31,15 +28,17 @@ public class TrainAvatar : Agent
 
     //private bodyCollider[] limb_positions;
     private bool is_waiting_episode_end = false;
+    private bool is_first_run = true;
 
     // Start is called before the first frame update
     void Start()
     {
         if (avatar_script == null || wall_delete_trigger == null || wall_script == null) Debug.LogWarning("Need to initialize the scripts");
 
+        
         wall_start_pos = wall_script.transform.position;
         avatar_start_pos = avatar_script.transform.position;
-
+        
         //RequestDecision();
     }
 
@@ -127,7 +126,7 @@ public class TrainAvatar : Agent
         Check_Overextension();
 
         //finished moving the body
-        avatar_script.completed_pose = true;
+        StartCoroutine(WallMoveAfterDelay(0.5f));
     }
 
     private void Check_Result()
@@ -138,27 +137,19 @@ public class TrainAvatar : Agent
             floor.GetComponent<MeshRenderer>().material = fail_material;
         }
 
+
         //finalize the rewards when the wall is completely done passing
         if (wall_delete_trigger.wall_complete && !is_waiting_episode_end)
         {
 
             float energy_calculated = avatar_script.energy_script.Calculate_energy();
-            //float reward = Mathf.Exp(-energy_calculated * 0.01f);
-
-            //lower the energy, the more reward. add small number to ensure no 0 division
-            float reward = 1000 / (energy_calculated + 0.0001f);
-
-
+            float reward = Mathf.Exp(-energy_calculated * 0.01f);
             //reward for not touching the walls
             if (!avatar_script.has_collided)
             {
-
-                //only give reward if not grounded/sitting for this training
-                if (!avatar_script.energy_script.root_joint.GetComponent<PelvisCollider>().is_grounded)
-                {
-                    //pass reward
-                    AddReward(reward);
-                }
+                //pass reward
+                if(!avatar_script.energy_script.root_joint.GetComponent<PelvisCollider>().is_grounded) AddReward(reward);
+                else AddReward(-.05f); //slight penalty for completing pose while grounded, to prevent "gaming"
 
                 floor.GetComponent<MeshRenderer>().material = pass_material;
             }
@@ -167,9 +158,8 @@ public class TrainAvatar : Agent
             //CHANGE THIS. MAKE IT SO THAT SOME COLLIDERS THAT PASS DO NOT CONTRIBUTE TO LOSS
             else
             {
-
                 //punish for losing
-                AddReward(-1 * energy_calculated / 10);
+                AddReward(-1f * (1f - reward));
             }
 
             is_waiting_episode_end = true;
@@ -179,22 +169,25 @@ public class TrainAvatar : Agent
 
     private void Check_Overextension()
     {
-        float penalty = -5f;
+        float penalty = -0.2f;
 
         if (avatar_script.has_over_moved) AddReward(penalty);
         if (avatar_script.has_over_rotated) AddReward(penalty);
     }
 
     public override void OnEpisodeBegin()
-    {
-        ResetEnvironment();
+    {   
+        //the intiial pose position gets altered if reset occurs on the first run, subsequent runs doesn't get altered
+        if(!is_first_run) ResetEnvironment();
+        else is_first_run = false;
+
         StartCoroutine(RequestDecisionAfterDelay(0.1f));
     }
 
     public void Collision_punish()
     {
         //lose per collided limb
-        AddReward(-10f);
+        AddReward(-0.5f);
     }
 
     private void ResetEnvironment()
@@ -238,5 +231,11 @@ public class TrainAvatar : Agent
     {
         yield return new WaitForSeconds(delay);
         RequestDecision();
+    }
+
+    private IEnumerator WallMoveAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        avatar_script.completed_pose = true;
     }
 }
