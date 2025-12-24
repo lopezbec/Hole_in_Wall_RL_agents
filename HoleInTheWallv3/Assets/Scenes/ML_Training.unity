@@ -2917,11 +2917,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ML Environment
       objectReference: {fileID: 0}
-    - target: {fileID: 5924020668764409919, guid: 192fa415c293e8044a69f421da831ed4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

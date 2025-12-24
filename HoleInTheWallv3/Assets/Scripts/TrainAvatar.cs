@@ -144,18 +144,19 @@ public class TrainAvatar : Agent
 
             float energy_calculated = avatar_script.energy_script.Calculate_energy();
             float reward = Mathf.Exp(-energy_calculated * 0.01f);
+
+            if(avatar_script.energy_script.is_sitting) AddReward(-7f); // penalty for completing pose while grounded, to prevent "gaming"
+
             //reward for not touching the walls
             if (!avatar_script.has_collided)
             {
                 //pass reward
-                if(!avatar_script.energy_script.root_joint.GetComponent<PelvisCollider>().is_grounded) AddReward(reward);
-                else AddReward(-.05f); //slight penalty for completing pose while grounded, to prevent "gaming"
+                if(!avatar_script.energy_script.is_sitting) AddReward(reward);
 
                 floor.GetComponent<MeshRenderer>().material = pass_material;
             }
 
 
-            //CHANGE THIS. MAKE IT SO THAT SOME COLLIDERS THAT PASS DO NOT CONTRIBUTE TO LOSS
             else
             {
                 //punish for losing
@@ -186,7 +187,7 @@ public class TrainAvatar : Agent
 
     public void Collision_punish()
     {
-        //lose per collided limb
+        //lose per collided limb. There are 14 bodyColliders per agent that can trigger this function
         AddReward(-0.5f);
     }
 

@@ -36,6 +36,10 @@ public class EnergyExpenditure : MonoBehaviour
     public GameObject left_foot;
     public GameObject right_foot;
 
+    [Header("Debug")]
+    public bool is_sitting = false;
+    public float final_energy = 0f;
+
     private readonly float avg_mass = 70;                                            // kg
     private readonly float gravity_accel = Mathf.Abs(Physics.gravity.y);                // meters / second^2
     private readonly float delta_time = 1f;                                                   // second       
@@ -136,6 +140,8 @@ public class EnergyExpenditure : MonoBehaviour
 
     public float Calculate_energy()
     {
+        is_sitting = root_joint.GetComponent<PelvisCollider>().is_grounded;
+
         //find external work -> Ecom(t+1) - Ecom(t) where t = 0
         float external_work = Math.Abs(Calculate_COM_WB() - initial_com_energy);
 
@@ -145,9 +151,9 @@ public class EnergyExpenditure : MonoBehaviour
 
         //find the power from torque used in all the limbs, only if pelvis is not touching ground
         float maintenance_energy = 0f;
-        if (!root_joint.GetComponent<PelvisCollider>().is_grounded) Calculate_maintenance_energy();
+        if (!is_sitting) Calculate_maintenance_energy();
 
-        float final_energy = Alleviate_Energy(transition_energy + maintenance_energy);
+        final_energy = Alleviate_Energy(transition_energy + maintenance_energy);
 
         //test statements
         //Debug.Log("This is the external work : " + external_work);
