@@ -5,6 +5,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using TMPro;
 using System.Runtime.ExceptionServices;
+using Unity.VisualScripting;
 
 public class TrainAvatar : Agent
 {
@@ -12,7 +13,7 @@ public class TrainAvatar : Agent
     [SerializeField] private AvatarController avatar_script;
     [SerializeField] private WallRemoveTrigger wall_delete_trigger;
     [SerializeField] private ObstacleGenerator wall_script;
-
+    [SerializeField] private StopPlaytime playtime_script;
 
     [Header("Materials for Pass/Fail")]
     [SerializeField] private GameObject floor;
@@ -27,14 +28,15 @@ public class TrainAvatar : Agent
     private readonly string prefab_path = "Controller_AI_APOSE";
 
     //private bodyCollider[] limb_positions;
-    private bool is_waiting_episode_end = false;
+    public bool is_waiting_episode_end = false;
     private bool is_first_run = true;
+    public float current_reward = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         if (avatar_script == null || wall_delete_trigger == null || wall_script == null) Debug.LogWarning("Need to initialize the scripts");
-
+        if(playtime_script == null) Debug.Log("WARNING, there is no automatic stopping during ML training if policy collapses. Initialize stop playtime script if needed.");
         
         wall_start_pos = wall_script.transform.position;
         avatar_start_pos = avatar_script.transform.position;
@@ -145,13 +147,13 @@ public class TrainAvatar : Agent
             float energy_calculated = avatar_script.energy_script.Calculate_energy();
             float reward = Mathf.Exp(-energy_calculated * 0.01f);
 
-            if(avatar_script.energy_script.is_sitting) AddReward(-7f); // penalty for completing pose while grounded, to prevent "gaming"
+            if(avatar_script.energy_script.is_sitting) AddRwd(-7f); // penalty for completing pose while grounded, to prevent "gaming"
 
             //reward for not touching the walls
             if (!avatar_script.has_collided)
             {
                 //pass reward
-                if(!avatar_script.energy_script.is_sitting) AddReward(reward);
+                if(!avatar_script.energy_script.is_sitting) AddRwd(reward);
 
                 floor.GetComponent<MeshRenderer>().material = pass_material;
             }
@@ -160,7 +162,7 @@ public class TrainAvatar : Agent
             else
             {
                 //punish for losing
-                AddReward(-1f * (1f - reward));
+                AddRwd(-1f * (1f - reward));
             }
 
             is_waiting_episode_end = true;
@@ -172,8 +174,8 @@ public class TrainAvatar : Agent
     {
         float penalty = -0.2f;
 
-        if (avatar_script.has_over_moved) AddReward(penalty);
-        if (avatar_script.has_over_rotated) AddReward(penalty);
+        if (avatar_script.has_over_moved) AddRwd(penalty);
+        if (avatar_script.has_over_rotated) AddRwd(penalty);
     }
 
     public override void OnEpisodeBegin()
@@ -188,7 +190,7 @@ public class TrainAvatar : Agent
     public void Collision_punish()
     {
         //lose per collided limb. There are 14 bodyColliders per agent that can trigger this function
-        AddReward(-0.5f);
+        AddRwd(-0.5f);
     }
 
     private void ResetEnvironment()
@@ -215,12 +217,17 @@ public class TrainAvatar : Agent
         wall_script.avatar_script = avatar_script;
         wall_script.transform.position = wall_start_pos;
         wall_script.Reset_Wall();
+
+        current_reward = 0;
     }
 
     private IEnumerator EndEpisodeAfterDelay(float delay)
     {
         // show reward for debugging
         reward_text.text = GetCumulativeReward().ToString();
+
+        //check for ml environment collapse
+        if(playtime_script != null) playtime_script.AddIntoAVG(current_reward);
 
         yield return new WaitForSeconds(delay);
 
@@ -238,5 +245,12 @@ public class TrainAvatar : Agent
     {
         yield return new WaitForSeconds(delay);
         avatar_script.completed_pose = true;
+    }
+
+    private void AddRwd(float reward_amt)
+    {   
+        //add into the current reward for debugging
+        current_reward += reward_amt;
+        AddReward(reward_amt);
     }
 }
