@@ -854,6 +854,8 @@ MonoBehaviour:
   previous_reward: -9999
   current_reward: 0
   agent_amt: 0
+  max_seen: -9999
+  flag: 0
 --- !u!1001 &465343097
 PrefabInstance:
   m_ObjectHideFlags: 0
