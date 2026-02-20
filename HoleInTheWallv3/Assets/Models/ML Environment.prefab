@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 5243120924188211467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.317, y: 0.066, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -337,9 +337,9 @@ MonoBehaviour:
     VectorObservationSize: 567
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 18
+      m_NumContinuousActions: 17
       BranchSizes: 
-    VectorActionSize: 12000000
+    VectorActionSize: 11000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -370,10 +370,13 @@ MonoBehaviour:
   avatar_script: {fileID: 2926053442335339044}
   wall_delete_trigger: {fileID: 6422720542157766767}
   wall_script: {fileID: 4472113213105375763}
+  playtime_script: {fileID: 0}
   floor: {fileID: 6818994156712783774}
   pass_material: {fileID: 2100000, guid: 531a81c3941e4aa40896422abc078fc4, type: 2}
   fail_material: {fileID: 2100000, guid: e7591f739f06c9c47b2ab5bc37b8d0c6, type: 2}
   reward_text: {fileID: 2822504421506461383}
+  is_waiting_episode_end: 0
+  current_reward: 0
 --- !u!1 &7305845889233268749
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 7305845889233268749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32349968, y: 0.5680001, z: -3.48}
+  m_LocalPosition: {x: -0.32349968, y: 0.5680001, z: -2.22}
   m_LocalScale: {x: 8.577139, y: 7.8161182, z: 0.52845514}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -726,7 +729,7 @@ Transform:
   m_GameObject: {fileID: 8270165252800633386}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32349968, y: -0.059999943, z: 1.4765496}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

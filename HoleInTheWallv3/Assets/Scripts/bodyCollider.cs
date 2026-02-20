@@ -53,4 +53,34 @@ public class bodyCollider : MonoBehaviour
         }
 
     }
+
+        void OnTriggerStay(Collider collision)
+    {
+
+        if (!isTestObject)
+        {
+            if (!hasCollided && collision.gameObject.tag == "Walls") //if collider hits wall, deduct score once
+            {
+                hasCollided = true;
+                GameController.PlayerCollided();
+                GameController.AddLog("Collision: " + gameObject.name + " with " + collision.gameObject.name + " at " + collision.gameObject.transform.position.x + ", " + collision.gameObject.transform.position.y + ", " + collision.gameObject.transform.position.z);
+            }
+            if (collision.gameObject.tag == "LevelStart")//reset at the start of levels
+            {
+
+                hasCollided = false;
+            }
+        }
+        else
+        {
+            //this is for the machine learning environment to stop seeing the errors
+            if (!hasCollided && collision.gameObject.CompareTag("Walls"))
+            {
+                hasCollided = true;
+                avatar_script.has_collided = true;
+                trainer_script.Collision_punish();
+            }
+        }
+
+    }
 }

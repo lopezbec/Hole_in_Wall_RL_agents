@@ -276,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.0065
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -333,6 +333,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -354,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -411,6 +426,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -432,7 +462,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.0065
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -489,6 +519,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -510,7 +555,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9065
+      value: 2.3000002
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -567,6 +612,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -588,7 +648,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006500244
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -645,6 +705,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -666,7 +741,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: -29.3
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -723,6 +798,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -744,7 +834,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.713
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -800,6 +890,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -872,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: -29.3
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -929,6 +1034,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -950,7 +1070,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9065
+      value: 2.3000002
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1007,6 +1127,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1028,7 +1163,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006500244
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1085,6 +1220,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1106,7 +1256,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: -29.3
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1163,6 +1313,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1184,7 +1349,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: -29.3
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1241,6 +1406,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1262,7 +1442,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.5065
+      value: -50.699997
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1319,6 +1499,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1340,7 +1535,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.5065
+      value: -50.699997
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1397,6 +1592,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1418,7 +1628,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.7
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1475,6 +1685,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1496,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1553,6 +1778,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1574,7 +1814,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9065
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1630,6 +1870,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1727,7 +1982,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1844,6 +2099,21 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.0035279617
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 8808750902396530511, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -1880,7 +2150,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.5065
+      value: -50.699997
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -1937,6 +2207,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1958,7 +2243,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9065
+      value: 2.3000002
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2014,6 +2299,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2104,7 +2404,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.713
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2161,6 +2461,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2182,7 +2497,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2239,6 +2554,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2260,7 +2590,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.713
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2316,6 +2646,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2456,7 +2801,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.7
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2513,6 +2858,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2534,7 +2894,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.7
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2591,6 +2951,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2612,7 +2987,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.713
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2669,6 +3044,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2690,7 +3080,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006500244
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2742,6 +3132,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ML Environment (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2763,7 +3168,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.5065
+      value: -50.699997
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2820,6 +3225,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2841,7 +3261,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.7
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2898,6 +3318,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2919,7 +3354,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.0065
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2976,6 +3411,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2997,7 +3447,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.0065
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -3054,6 +3504,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3075,7 +3540,7 @@ PrefabInstance:
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006500244
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 3537148727608983630, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -3126,6 +3591,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ML Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

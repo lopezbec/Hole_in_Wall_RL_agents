@@ -64,7 +64,7 @@ public class TrainAvatar : Agent
             {
                 //find the wall piece according to the matrix index
                 string name = string.Format("{0}, {1}", i, j);
-                Transform wall_piece = wall_script.transform.Find(name);
+                Transform wall_piece = wall_script.transform.GetChild(0).Find(name);
 
                 sensor.AddObservation(wall_matrix[i, j]);
 
@@ -84,9 +84,11 @@ public class TrainAvatar : Agent
 
     }
 
+
     public override void OnActionReceived(ActionBuffers actions)
     {
-        //18 actions
+
+        //17 actions
 
         //move left hand
         avatar_script.Move_hand(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2], false);
@@ -121,14 +123,19 @@ public class TrainAvatar : Agent
         Check_Overextension();
 
         //move body
+        //float body_x_pos = actions.ContinuousActions[15] * 1.5f;
+        //float body_y_rot = actions.ContinuousActions[16] * 360;
+        //float body_z_pos = actions.ContinuousActions[17] * 1.5f;
+        //avatar_script.Move_body(body_x_pos, body_y_rot, body_z_pos);
+
+        //move body 
         float body_x_pos = actions.ContinuousActions[15] * 1.5f;
         float body_y_rot = actions.ContinuousActions[16] * 360;
-        float body_z_pos = actions.ContinuousActions[17] * 1.5f;
-        avatar_script.Move_body(body_x_pos, body_y_rot, body_z_pos);
+        avatar_script.Move_body(body_x_pos, body_y_rot, 0f);
         Check_Overextension();
 
         //finished moving the body
-        StartCoroutine(WallMoveAfterDelay(0.5f));
+        StartCoroutine(WallMoveAfterDelay(1.5f));
     }
 
     private void Check_Result()
@@ -147,7 +154,7 @@ public class TrainAvatar : Agent
             float energy_calculated = avatar_script.energy_script.Calculate_energy();
             float reward = Mathf.Exp(-energy_calculated * 0.01f);
 
-            if(avatar_script.energy_script.is_sitting) AddRwd(-7f); // penalty for completing pose while grounded, to prevent "gaming"
+            if(avatar_script.energy_script.is_sitting) AddRwd(-5f); // penalty for completing pose while grounded, to prevent "gaming"
 
             //reward for not touching the walls
             if (!avatar_script.has_collided)
