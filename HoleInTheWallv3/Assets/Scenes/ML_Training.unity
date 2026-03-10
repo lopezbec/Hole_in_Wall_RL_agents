@@ -335,18 +335,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -428,18 +434,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -521,18 +533,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -614,18 +632,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -707,18 +731,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -800,18 +830,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -893,18 +929,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1036,18 +1078,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1129,18 +1177,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1222,18 +1276,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1315,18 +1375,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1408,18 +1474,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1501,18 +1573,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1594,18 +1672,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1687,18 +1771,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1780,18 +1870,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1873,18 +1969,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2101,18 +2203,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8808750902396530511, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
@@ -2209,18 +2317,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2302,18 +2416,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2463,18 +2583,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2556,18 +2682,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2649,18 +2781,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2860,18 +2998,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2953,18 +3097,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3046,18 +3196,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3134,18 +3290,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3227,18 +3389,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3320,18 +3488,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3413,18 +3587,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3506,18 +3686,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3594,18 +3780,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 23be4f38fb8134e4da6aa06f2a9c8aa1,
+        type: 3}
+    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 567
+      value: 610
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
         type: 3}
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5822,6 +5822,7 @@ MonoBehaviour:
   block_height: 0.25
   block_width: 0.3
   block_depth: 0.2
+  boundaryObj: {fileID: 0}
   custom_cube_amt: 5
   avatar_script: {fileID: 1461428639}
 --- !u!65 &874627841
@@ -9971,6 +9972,7 @@ MonoBehaviour:
   block_height: 0.25
   block_width: 0.3
   block_depth: 0.2
+  boundaryObj: {fileID: 0}
   custom_cube_amt: 5
   avatar_script: {fileID: 0}
 --- !u!65 &1610121174

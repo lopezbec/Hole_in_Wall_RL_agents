@@ -20,6 +20,8 @@ public class ObstacleGenerator : MonoBehaviour
     public float block_depth = 0.2f;                                                // the block thickness size
     public int[,] wall;                                                             // matrix representing the wall with holes. 0 = hole, 1 = wall
 
+    public GameObject boundaryObj;
+
     //second way to generate the wall
     public int custom_cube_amt = 5;
     private float move_spd = .1f;
@@ -46,7 +48,8 @@ public class ObstacleGenerator : MonoBehaviour
         //initialize_wall_generation(false);
         initialize_wall_generation_large(3.5f, false);
 
-        generate_limb_walls();
+        //add walls that should incentivize limb movement, but are impossible to pass
+        //generate_limb_walls();
 
         //reduced wall set
         //initialize_wall_generation(true);
@@ -64,7 +67,7 @@ public class ObstacleGenerator : MonoBehaviour
         //                         };
 
         // custom_build(block_param);
-
+        if(!boundaryObj) Debug.Log("Boundary Object is not initialized");
     }
 
     // Update is called once per frame
@@ -119,6 +122,7 @@ public class ObstacleGenerator : MonoBehaviour
         int[,] test_wall = select_random_test(test_id);
         Build_wall(test_wall);
         this.gameObject.SetActive(true);
+        if(boundaryObj) boundaryObj.SetActive(false);
     }
 
     public void Set_dim()
@@ -337,6 +341,7 @@ public class ObstacleGenerator : MonoBehaviour
     {   
         if (avatar_script.completed_pose) {
             transform.GetChild(0).gameObject.SetActive(true);
+            if(boundaryObj) boundaryObj.gameObject.SetActive(true);
             transform.position = new(transform.position.x, transform.position.y, transform.position.z - move_spd);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.WebSockets;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,6 +21,8 @@ public class AvatarController : MonoBehaviour
     [SerializeField] private Transform hip_target;
     [SerializeField] private Transform right_leg_target;
     [SerializeField] private Transform left_leg_target;
+    [SerializeField] private Transform right_knee_target;
+    [SerializeField] private Transform left_knee_target;
 
 
     [Header("Movement Limits")]
@@ -94,7 +97,6 @@ public class AvatarController : MonoBehaviour
         //Generate_Movement_File(6);
         //StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
-
     }
 
     //when reading file, make sure to reset controller first to have the pose in the correct starting pose
@@ -404,6 +406,27 @@ public class AvatarController : MonoBehaviour
         }
 
         return (target.localPosition.x, target.localPosition.y, target.localPosition.z);
+    }
+
+    public void Rotate_knees(float right_float, float left_float)
+    {
+        //knee rtation limit is 110 in the x direction. No negatives.
+        float rotation_limit = 111f;
+
+        float  right_knee_float = Math.Abs(right_float % rotation_limit);
+        float left_knee_float = Math.Abs(left_float % rotation_limit);
+
+        //get the current rotation
+        UnityEngine.Vector3 r_knee_reposition = right_knee_target.eulerAngles;
+        UnityEngine.Vector3 l_knee_reposition = left_knee_target.eulerAngles;
+
+        //reposition only the x rotation
+        r_knee_reposition.x += right_knee_float;
+        l_knee_reposition.x += left_knee_float;
+
+        //change the target rotation
+        right_knee_target.transform.eulerAngles = r_knee_reposition;
+        left_knee_target.transform.eulerAngles = l_knee_reposition;
     }
 
     public GameObject Reset_Controller()

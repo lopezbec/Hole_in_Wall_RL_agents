@@ -6,6 +6,8 @@ using Unity.MLAgents.Sensors;
 using TMPro;
 using System.Runtime.ExceptionServices;
 using Unity.VisualScripting;
+using System.Security.Permissions;
+using System.Security.Cryptography;
 
 public class TrainAvatar : Agent
 {
@@ -82,13 +84,25 @@ public class TrainAvatar : Agent
             }
         }
 
+        GameObject agent_ragdoll = transform.Find("Controller_AI_APOSE").Find("ragdoll").gameObject;
+        bodyCollider[] limbs_with_colliders = agent_ragdoll.GetComponentsInChildren<bodyCollider>();
+
+        //add the limb positions to the observation
+        for (int i = 0; i < limbs_with_colliders.Length; i++)
+        {
+            Transform limb_transform = limbs_with_colliders[i].gameObject.transform;
+            
+            sensor.AddObservation(limb_transform.position);
+        }
+
+         sensor.AddObservation(avatar_script.energy_script.is_sitting);
     }
 
 
     public override void OnActionReceived(ActionBuffers actions)
     {
 
-        //17 actions
+        //19 actions
 
         //move left hand
         avatar_script.Move_hand(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2], false);
@@ -134,6 +148,11 @@ public class TrainAvatar : Agent
         avatar_script.Move_body(body_x_pos, body_y_rot, 0f);
         Check_Overextension();
 
+        //rotate the knees of the legs. Max rotation of knees for the agent is 110
+        float right_knee_rot = actions.ContinuousActions[17] * 110;
+        float left_knee_rot = actions.ContinuousActions[18] * 110;
+        avatar_script.Rotate_knees(right_knee_rot, left_knee_rot);
+
         //finished moving the body
         StartCoroutine(WallMoveAfterDelay(1.5f));
     }
@@ -154,7 +173,7 @@ public class TrainAvatar : Agent
             float energy_calculated = avatar_script.energy_script.Calculate_energy();
             float reward = Mathf.Exp(-energy_calculated * 0.01f);
 
-            if(avatar_script.energy_script.is_sitting) AddRwd(-5f); // penalty for completing pose while grounded, to prevent "gaming"
+            //if(avatar_script.energy_script.is_sitting) AddRwd(-5f); // penalty for completing pose while grounded, to prevent "gaming"
 
             //reward for not touching the walls
             if (!avatar_script.has_collided)
@@ -210,7 +229,7 @@ public class TrainAvatar : Agent
         //create and reset controller environment
         GameObject prefab = Resources.Load(prefab_path) as GameObject;
         GameObject new_instance = Instantiate(prefab, avatar_start_pos, Quaternion.identity);
-        new_instance.name = "Controller_AI";
+        new_instance.name = "Controller_AI_APOSE";
         new_instance.transform.SetParent(this.transform);
 
         //reset the avatar
