@@ -129,19 +129,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\W\\.nuget\\packages\\": {}
+    "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Assembly-CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Assembly-CSharp.csproj",
       "projectName": "Assembly-CSharp",
-      "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Assembly-CSharp.csproj",
-      "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
+      "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Assembly-CSharp.csproj",
+      "packagesPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
@@ -153,26 +153,26 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Dependencies.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Dependencies.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Dependencies.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Dependencies.csproj"
             },
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Editor.csproj"
             },
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Onboarding.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Onboarding.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Onboarding.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Gleechi.VirtualGrasp.Onboarding.csproj"
             },
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj"
             },
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj"
             },
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj"
             },
-            "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj": {
-              "projectPath": "C:\\Users\\W\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj"
+            "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj": {
+              "projectPath": "C:\\Users\\hongw.LOPEZBEC-RSRCH2\\Documents\\GitHub\\Hole_in_Wall_RL_agents\\HoleInTheWallv3\\VG_Scripts.csproj"
             }
           }
         }
@@ -186,8 +186,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "netstandard2.1": {
@@ -203,7 +202,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.319\\RuntimeIdentifierGraph.json"
       }
     }
   }

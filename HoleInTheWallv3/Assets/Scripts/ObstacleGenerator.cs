@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,14 +22,16 @@ public class ObstacleGenerator : MonoBehaviour
     public int[,] wall;                                                             // matrix representing the wall with holes. 0 = hole, 1 = wall
 
     public GameObject boundaryObj;
+    public int test_id = -1;
 
     //second way to generate the wall
     public int custom_cube_amt = 5;
     private float move_spd = .1f;
     public AvatarController avatar_script;
 
+    private string demo_json_path = Application.dataPath + "/Scripts/Reinforcement_Learning/gail_demos/demo_solutions.json";
+
     private List<int[,]> test_walls = new();
-    private int test_id = -1;
     private static int[,] full_wall_matrix = {  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                                                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                                                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -46,7 +49,7 @@ public class ObstacleGenerator : MonoBehaviour
     {
         //normal run
         //initialize_wall_generation(false);
-        initialize_wall_generation_large(3.5f, false);
+        //initialize_wall_generation_large(3.5f, false);
 
         //add walls that should incentivize limb movement, but are impossible to pass
         //generate_limb_walls();
@@ -58,6 +61,9 @@ public class ObstacleGenerator : MonoBehaviour
         //test_id = 51;
         //initialize_specific_wall(false, test_id);
         //initialize_complete_wall();
+
+        //demo initialize (comment out when doing actual runs)
+        generate_demo_wall(demo_json_path, block_depth, 0);
 
         // float[,] block_param = {    {.25f, 0, 0, .25f, .5f},
         //                             {0, .5f, 0, .25f, .5f},
@@ -73,7 +79,7 @@ public class ObstacleGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move_wall();
+        //Move_wall();
     }
 
 
@@ -179,7 +185,7 @@ public class ObstacleGenerator : MonoBehaviour
         GameObject parent_obj = new();
         parent_obj.transform.SetParent(transform);
         parent_obj.transform.position = transform.position;
-        parent_obj.SetActive(false);
+        //parent_obj.SetActive(false);
 
         //fill from the bottom up
         for (int i = wall_row - 1; i >= 0; i--)
@@ -357,10 +363,11 @@ public class ObstacleGenerator : MonoBehaviour
             }
         }
 
-        System.Random rand = new();
-
         //when test id is -1 or lower, do random select
-        return test_walls[rand.Next(0, test_walls.Count)];
+        System.Random rand = new();
+        test_id = rand.Next(0, test_walls.Count);
+
+        return test_walls[test_id];
     }
 
     // int[,] test_wall =  {   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -858,7 +865,61 @@ public class ObstacleGenerator : MonoBehaviour
         //Wide Stance Shifted Left
         int[,] wall_51 = { { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 0, 0, 0, 1, 1, 1, 1, 1 }, { 1, 0, 0, 0, 1, 1, 1, 1, 1 }, { 0, 0, 1, 0, 0, 1, 1, 1, 1 }, { 0, 0, 1, 0, 0, 1, 1, 1, 1 } };
         test_walls.Add(wall_51);
+    }
 
 
+    private void generate_demo_wall(string json_path, float wall_depth, int test_num)
+    {
+        block_depth = wall_depth;
+
+        //read JSON content from file
+        string json_content = File.ReadAllText(json_path);
+
+        //deserialize JSON to object
+        List<DemoJSON> demo_walls = JsonConvert.DeserializeObject<List<DemoJSON>>(json_content);
+
+        //add all the walls from the json
+        foreach(var wall in demo_walls)
+        {   
+            int[,] converted_wall_matrix = ConvertTo2D(wall.Wall_matrix);
+            test_walls.Add(converted_wall_matrix);
+        }
+
+        //build the walls. -1 for random initializations. 
+        int[,] obstacle = select_random_test(test_num);
+        Build_wall(obstacle);
+    }
+
+    //convert to 2D matrix
+    private int[,] ConvertTo2D(int[][] jagged)
+    {
+
+        int rows = jagged.Length;
+        int cols = jagged[0].Length;
+
+        int[,] result = new int[rows, cols];
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                result[i, j] = jagged[i][j];
+            }
+        }
+
+        return result;
     }
 }
+
+public class DemoJSON
+{
+    [JsonProperty("wall_id")]
+    public int Wall_id { get;}
+
+    [JsonProperty("matrix")]
+    public int[][] Wall_matrix { get; set;}
+
+    [JsonProperty("solutions")]
+    public float[][] Solutions {get;}
+}
+

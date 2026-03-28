@@ -102,7 +102,7 @@ public class TrainAvatar : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
 
-        //19 actions
+        //17 actions
 
         //move left hand
         avatar_script.Move_hand(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2], false);
@@ -148,10 +148,6 @@ public class TrainAvatar : Agent
         avatar_script.Move_body(body_x_pos, body_y_rot, 0f);
         Check_Overextension();
 
-        //rotate the knees of the legs. Max rotation of knees for the agent is 110
-        float right_knee_rot = actions.ContinuousActions[17] * 110;
-        float left_knee_rot = actions.ContinuousActions[18] * 110;
-        avatar_script.Rotate_knees(right_knee_rot, left_knee_rot);
 
         //finished moving the body
         StartCoroutine(WallMoveAfterDelay(1.5f));
@@ -173,7 +169,7 @@ public class TrainAvatar : Agent
             float energy_calculated = avatar_script.energy_script.Calculate_energy();
             float reward = Mathf.Exp(-energy_calculated * 0.01f);
 
-            //if(avatar_script.energy_script.is_sitting) AddRwd(-5f); // penalty for completing pose while grounded, to prevent "gaming"
+            if(avatar_script.energy_script.is_sitting) AddRwd(-5f); // penalty for completing pose while grounded, to prevent "gaming"
 
             //reward for not touching the walls
             if (!avatar_script.has_collided)
@@ -268,7 +264,10 @@ public class TrainAvatar : Agent
     }
 
     private IEnumerator WallMoveAfterDelay(float delay)
-    {
+    {   
+        //wait for the arms to actually move
+        yield return new WaitForFixedUpdate();
+
         yield return new WaitForSeconds(delay);
         avatar_script.completed_pose = true;
     }
@@ -279,4 +278,6 @@ public class TrainAvatar : Agent
         current_reward += reward_amt;
         AddReward(reward_amt);
     }
+
+    
 }
