@@ -2926,6 +2926,7 @@ MonoBehaviour:
   block_width: 0.3
   block_depth: 0.2
   boundaryObj: {fileID: 1457919230199824648}
+  test_id: -1
   custom_cube_amt: 5
   avatar_script: {fileID: 2926053442335339044}
 --- !u!54 &1853205884249214500
@@ -3322,9 +3323,9 @@ MonoBehaviour:
     VectorObservationSize: 610
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 19
+      m_NumContinuousActions: 17
       BranchSizes: 
-    VectorActionSize: 13000000
+    VectorActionSize: 11000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1

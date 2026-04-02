@@ -5524,16 +5524,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
-        type: 3}
-      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 8257938662349722349, guid: 192fa415c293e8044a69f421da831ed4,
-        type: 3}
-      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 17
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8103,26 +8093,6 @@ PrefabInstance:
     - target: {fileID: 4979084590409509951, guid: e89112b1819b0a244ae56c9c25739283,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7863420027015180509, guid: e89112b1819b0a244ae56c9c25739283,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493093641627041520, guid: e89112b1819b0a244ae56c9c25739283,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493093641627041520, guid: e89112b1819b0a244ae56c9c25739283,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508566220313033651, guid: e89112b1819b0a244ae56c9c25739283,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

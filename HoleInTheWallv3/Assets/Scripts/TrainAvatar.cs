@@ -4,10 +4,13 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using TMPro;
+using Newtonsoft.Json;
 using System.Runtime.ExceptionServices;
 using Unity.VisualScripting;
 using System.Security.Permissions;
 using System.Security.Cryptography;
+using System.IO;
+using System.Collections.Generic;
 
 public class TrainAvatar : Agent
 {
@@ -32,6 +35,7 @@ public class TrainAvatar : Agent
     //private bodyCollider[] limb_positions;
     public bool is_waiting_episode_end = false;
     private bool is_first_run = true;
+    private string demo_json_path = Application.dataPath + "/Scripts/Reinforcement_Learning/gail_demos/demo_solutions.json";
     public float current_reward = 0;
 
     // Start is called before the first frame update
@@ -151,6 +155,48 @@ public class TrainAvatar : Agent
 
         //finished moving the body
         StartCoroutine(WallMoveAfterDelay(1.5f));
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
+
+        //read JSON content from file
+        string json_content = File.ReadAllText(demo_json_path);
+
+        //deserialize JSON to object
+        List<DemoJSON> demo_walls = JsonConvert.DeserializeObject<List<DemoJSON>>(json_content);
+        
+        //find the current test wall
+        int current_wall_id = wall_script.test_id;
+        DemoJSON current_wall = null;
+
+        foreach(var wall in demo_walls)
+        {   
+            if (current_wall_id == wall.Wall_id) {
+                current_wall = wall;
+                break;
+            }
+        }
+        
+        if (current_wall == null)
+        {           
+            Debug.LogError($"No wall found for id {current_wall_id}");
+            return;
+        }
+        
+        //randomly select a solution 
+        System.Random rand = new();
+        int sol_id = rand.Next(0, current_wall.Solutions.Length);
+        float [] selected_solution = current_wall.Solutions[sol_id];
+
+
+        //map to the continuous actions
+        for(int i = 0; i < selected_solution.Length; i++)
+        {
+            continuousActions[i] = selected_solution[i];
+        }
+
     }
 
     private void Check_Result()

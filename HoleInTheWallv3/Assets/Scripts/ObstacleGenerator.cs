@@ -22,7 +22,8 @@ public class ObstacleGenerator : MonoBehaviour
     public int[,] wall;                                                             // matrix representing the wall with holes. 0 = hole, 1 = wall
 
     public GameObject boundaryObj;
-    public int test_id = -1;
+    private int run_type = -1;                                                      //negative one means random
+    public int test_id = -1;                                                        //storing what the current wall is
 
     //second way to generate the wall
     public int custom_cube_amt = 5;
@@ -44,8 +45,8 @@ public class ObstacleGenerator : MonoBehaviour
                                              };
     private readonly string wall_save_file = Application.dataPath + "/Scripts/Reinforcement_Learning/wall_tests.txt";
 
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         //normal run
         //initialize_wall_generation(false);
@@ -57,13 +58,15 @@ public class ObstacleGenerator : MonoBehaviour
         //reduced wall set
         //initialize_wall_generation(true);
 
-        //debug and creation of walls
+        //debug and creation of specific walls
+        //run_type = 0;
         //test_id = 51;
         //initialize_specific_wall(false, test_id);
         //initialize_complete_wall();
 
         //demo initialize (comment out when doing actual runs)
-        generate_demo_wall(demo_json_path, block_depth, 0);
+        run_type = 0;
+        generate_demo_wall(demo_json_path, block_depth, 5);
 
         // float[,] block_param = {    {.25f, 0, 0, .25f, .5f},
         //                             {0, .5f, 0, .25f, .5f},
@@ -89,7 +92,7 @@ public class ObstacleGenerator : MonoBehaviour
         if (!is_reduced) generate_test_walls();
         else generate_test_walls_reduced();
 
-        int[,] obstacle = select_random_test(-1);
+        int[,] obstacle = select_random_test(run_type);
         Build_wall(obstacle);
     }
 
@@ -100,7 +103,7 @@ public class ObstacleGenerator : MonoBehaviour
         if (!is_reduced) generate_test_walls();
         else generate_test_walls_reduced();
 
-        int[,] obstacle = select_random_test(-1);
+        int[,] obstacle = select_random_test(run_type);
         Build_wall(obstacle);
     }
     //matrix wall generation
@@ -125,7 +128,7 @@ public class ObstacleGenerator : MonoBehaviour
     //for ML wall reset
     public void Reset_Wall()
     {
-        int[,] test_wall = select_random_test(test_id);
+        int[,] test_wall = select_random_test(run_type);
         Build_wall(test_wall);
         this.gameObject.SetActive(true);
         if(boundaryObj) boundaryObj.SetActive(false);
@@ -359,6 +362,7 @@ public class ObstacleGenerator : MonoBehaviour
         {
             if (wall_id < test_walls.Count)
             {
+                test_id = wall_id;
                 return test_walls[wall_id];
             }
         }
@@ -911,15 +915,5 @@ public class ObstacleGenerator : MonoBehaviour
     }
 }
 
-public class DemoJSON
-{
-    [JsonProperty("wall_id")]
-    public int Wall_id { get;}
 
-    [JsonProperty("matrix")]
-    public int[][] Wall_matrix { get; set;}
-
-    [JsonProperty("solutions")]
-    public float[][] Solutions {get;}
-}
 
