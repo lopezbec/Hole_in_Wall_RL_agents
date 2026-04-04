@@ -8050,11 +8050,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller_AI_APOSE
       objectReference: {fileID: 0}
-    - target: {fileID: 2564567668585213392, guid: e89112b1819b0a244ae56c9c25739283,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4979084590409509951, guid: e89112b1819b0a244ae56c9c25739283,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -64,7 +64,7 @@ public class ObstacleGenerator : MonoBehaviour
         //initialize_complete_wall();
 
         //demo initialize (comment out when doing actual runs)
-        run_type = 2;
+        run_type = 6;
         generate_demo_wall(demo_json_path, 3.5f, run_type);
 
         // float[,] block_param = {    {.25f, 0, 0, .25f, .5f},
