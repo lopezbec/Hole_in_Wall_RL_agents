@@ -11,7 +11,9 @@ using System.Security.Permissions;
 using System.Security.Cryptography;
 using System.IO;
 using System.Collections.Generic;
+using Unity.MLAgents.Policies;
 
+[RequireComponent(typeof(BehaviorParameters))]
 public class TrainAvatar : Agent
 {
     [Header("Object Scripts")]
@@ -38,6 +40,13 @@ public class TrainAvatar : Agent
     private string demo_json_path = Application.dataPath + "/Scripts/Reinforcement_Learning/gail_demos/demo_solutions.json";
     public float current_reward = 0;
 
+    private BehaviorParameters behaviorParameters;
+
+    void Awake()
+    {
+        behaviorParameters = GetComponent<BehaviorParameters>();
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +117,9 @@ public class TrainAvatar : Agent
 
         //17 actions
 
+        //Heuristic mode → DO NOT mutate anything
+
+
         //move left hand
         avatar_script.Move_hand(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2], false);
         Check_Overextension();
@@ -118,11 +130,19 @@ public class TrainAvatar : Agent
 
         //rotate hips. rotation restictions are based off of AvatarController.cs
         float hip_x_rot = actions.ContinuousActions[6];
-        if (hip_x_rot < 0) hip_x_rot *= 30;
-        else hip_x_rot *= 100;
+        if(behaviorParameters.BehaviorType != BehaviorType.HeuristicOnly){
+            if (hip_x_rot < 0) hip_x_rot *= 30;
+            else hip_x_rot *= 100;
+        }
 
-        float hip_y_rot = actions.ContinuousActions[7] * 30;
-        float hip_z_rot = actions.ContinuousActions[8] * 25;
+        float hip_y_rot = actions.ContinuousActions[7];
+        float hip_z_rot = actions.ContinuousActions[8];
+
+        if(behaviorParameters.BehaviorType != BehaviorType.HeuristicOnly){
+            hip_y_rot *= 30;
+            hip_z_rot *= 25;
+        }
+
         avatar_script.Rotate_hip(hip_x_rot, hip_y_rot, hip_z_rot);
         Check_Overextension();
 
@@ -147,8 +167,14 @@ public class TrainAvatar : Agent
         //avatar_script.Move_body(body_x_pos, body_y_rot, body_z_pos);
 
         //move body 
-        float body_x_pos = actions.ContinuousActions[15] * 1.5f;
-        float body_y_rot = actions.ContinuousActions[16] * 360;
+        float body_x_pos = actions.ContinuousActions[15];
+        float body_y_rot = actions.ContinuousActions[16];
+
+        if(behaviorParameters.BehaviorType != BehaviorType.HeuristicOnly){
+            body_x_pos *= 1.5f;
+            body_y_rot *= 360;
+        }
+
         avatar_script.Move_body(body_x_pos, body_y_rot, 0f);
         Check_Overextension();
 
@@ -311,11 +337,17 @@ public class TrainAvatar : Agent
 
     private IEnumerator WallMoveAfterDelay(float delay)
     {   
-        //wait for the arms to actually move
-        yield return new WaitForFixedUpdate();
+
+        //must give it some time for the ragdoll to catch up to the changes of the static animator. speed up.
+        //float project_time = Time.timeScale;
+        //Time.timeScale = 30f;
 
         yield return new WaitForSeconds(delay);
+
+        //put back tp normal time scale
+        //Time.timeScale = project_time;
         avatar_script.completed_pose = true;
+
     }
 
     private void AddRwd(float reward_amt)

@@ -66,7 +66,7 @@ public class ObstacleGenerator : MonoBehaviour
 
         //demo initialize (comment out when doing actual runs)
         run_type = 0;
-        generate_demo_wall(demo_json_path, block_depth, 5);
+        generate_demo_wall(demo_json_path, 3.5f, 0);
 
         // float[,] block_param = {    {.25f, 0, 0, .25f, .5f},
         //                             {0, .5f, 0, .25f, .5f},
@@ -82,7 +82,7 @@ public class ObstacleGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move_wall();
+        Move_wall();
     }
 
 
@@ -188,7 +188,7 @@ public class ObstacleGenerator : MonoBehaviour
         GameObject parent_obj = new();
         parent_obj.transform.SetParent(transform);
         parent_obj.transform.position = transform.position;
-        //parent_obj.SetActive(false);
+        parent_obj.SetActive(false);
 
         //fill from the bottom up
         for (int i = wall_row - 1; i >= 0; i--)

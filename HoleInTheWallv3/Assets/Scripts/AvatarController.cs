@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 public class AvatarController : MonoBehaviour
 {
     private readonly string prefab_path = "Controller_AI_APOSE";
-    [SerializeField] private GameObject static_animator;
+    [SerializeField] public GameObject static_animator;
     public GameObject ragdoll;
 
     [Header("Limb Targets")]
@@ -96,7 +96,7 @@ public class AvatarController : MonoBehaviour
 
         //tests
         //Generate_Movement_File(6);
-        StartCoroutine(Read_movement_file(11));
+        //StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
     }
 
