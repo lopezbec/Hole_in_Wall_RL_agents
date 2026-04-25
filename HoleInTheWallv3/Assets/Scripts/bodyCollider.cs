@@ -50,7 +50,7 @@ public class bodyCollider : MonoBehaviour
                 avatar_script.has_collided = true;
                 trainer_script.Collision_punish();
                 //Debug.Log("This object " + this.gameObject.name + " triggered " + collision.gameObject.name);
-                Debug.DrawLine(this.transform.position, collision.transform.position, Color.blue, Mathf.Infinity);
+                //Debug.DrawLine(this.transform.position, collision.transform.position, Color.blue, Mathf.Infinity);
             }
         }
 

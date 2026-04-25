@@ -119,6 +119,7 @@ public class TrainAvatar : Agent
 
         //Heuristic mode → DO NOT mutate anything
 
+        
 
         //move left hand
         avatar_script.Move_hand(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2], false);

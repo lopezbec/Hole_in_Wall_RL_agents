@@ -3282,6 +3282,7 @@ GameObject:
   - component: {fileID: 3537148727608983630}
   - component: {fileID: 8257938662349722349}
   - component: {fileID: 2351434012188760433}
+  - component: {fileID: 4784717954252585981}
   m_Layer: 0
   m_Name: ML Environment
   m_TagString: ML_Script
@@ -3363,6 +3364,22 @@ MonoBehaviour:
   reward_text: {fileID: 2822504421506461383}
   is_waiting_episode_end: 0
   current_reward: 0
+--- !u!114 &4784717954252585981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484609962780269301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 0
+  NumStepsToRecord: 0
+  DemonstrationName: 
+  DemonstrationDirectory: 
 --- !u!1 &5601940842736593959
 GameObject:
   m_ObjectHideFlags: 0
