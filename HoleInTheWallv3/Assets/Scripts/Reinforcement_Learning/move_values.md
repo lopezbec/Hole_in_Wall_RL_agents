@@ -42,9 +42,9 @@ move\_directions.csv : the file that commands the avatar to move its limbs.
 
 
 
-saved\_positions.csv : file that stores poses that can be copied and pasted into move\_directions.csv to perform 
+saved\_positions.csv : file that stores poses that can be copied and pasted into move\_directions.csv to perform
 
-&nbsp;		      the saved pose.
+ 		      the saved pose.
 
 
 

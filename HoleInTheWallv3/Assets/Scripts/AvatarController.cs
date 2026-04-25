@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.WebSockets;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,8 +11,9 @@ using UnityEngine.UIElements;
 
 public class AvatarController : MonoBehaviour
 {
-    private readonly string prefab_path = "Controller_AI";
-    [SerializeField] private GameObject static_animator;
+    private readonly string prefab_path = "Controller_AI_APOSE";
+    [SerializeField] public GameObject static_animator;
+    public GameObject ragdoll;
 
     [Header("Limb Targets")]
     [SerializeField] private Transform right_hand_target;
@@ -19,6 +21,8 @@ public class AvatarController : MonoBehaviour
     [SerializeField] private Transform hip_target;
     [SerializeField] private Transform right_leg_target;
     [SerializeField] private Transform left_leg_target;
+    [SerializeField] private Transform right_knee_target;
+    [SerializeField] private Transform left_knee_target;
 
 
     [Header("Movement Limits")]
@@ -35,9 +39,11 @@ public class AvatarController : MonoBehaviour
     public bool has_over_rotated = false;
 
     public bool completed_pose = false;
+    public bool has_collided = false;
 
     [Header("Energy Script")]
-    [SerializeField] private EnergyExpenditure energy_script;
+    public EnergyExpenditure energy_script;
+
 
     private Vector3 prefab_position;
 
@@ -50,15 +56,24 @@ public class AvatarController : MonoBehaviour
     string saved_poses_file;
 
     //starting positions of the targets
+    private Vector3 left_hand_pos;
+    private Vector3 right_hand_pos;
+    private Vector3 left_leg_pos;
+    private Vector3 right_leg_pos;
     private Vector3 hip_rotation;
     private Vector3 body_pos;
 
+    
+
     void Awake()
-    {
+    {   
         //store the starting positions of the avatars
         hip_rotation = hip_target.eulerAngles;
         body_pos = static_animator.transform.position;
-
+        left_hand_pos = left_hand_target.localPosition;
+        right_hand_pos = right_hand_target.localPosition;
+        left_leg_pos = left_leg_target.localPosition;
+        right_leg_pos = right_leg_target.localPosition;
     }
 
     // Start is called before the first frame update    
@@ -81,9 +96,8 @@ public class AvatarController : MonoBehaviour
 
         //tests
         //Generate_Movement_File(6);
-        StartCoroutine(Read_movement_file(11));
+        //StartCoroutine(Read_movement_file(11));
         //StartCoroutine(Generate_Movement(5));
-
     }
 
     //when reading file, make sure to reset controller first to have the pose in the correct starting pose
@@ -97,11 +111,17 @@ public class AvatarController : MonoBehaviour
             ["hip_rotation"] = (0, 0, 0),                                                                       // 2
             ["l_leg_position"] = (0, 0, 0),                                                                     // 3
             ["r_leg_position"] = (0, 0, 0),                                                                     // 4
-            ["body_position"] = (static_animator.transform.position.x, static_animator.transform.position.y, static_animator.transform.position.z)              // 5
+            ["body_position"] = (static_animator.transform.position.x, static_animator.transform.position.y, static_animator.transform.position.z),              // 5
         };
 
-        //find the rotation of the hand
 
+        Rigidbody animator_rb = static_animator.GetComponent<Rigidbody>();
+
+        animator_rb.useGravity = false;
+        animator_rb.isKinematic = true;
+
+
+        //read file and use movements
         using (StreamReader reader = new(direction_file))
         {
             while (!reader.EndOfStream)
@@ -113,9 +133,9 @@ public class AvatarController : MonoBehaviour
 
                 //param separated by comma
                 string[] parameters = line.Split(',');
-
+            
                 if (parameters.Length != 4) continue;
-
+                
                 // try parsing the first 4 items
                 if (!int.TryParse(parameters[0], out int move_type) ||
                     !float.TryParse(parameters[1], out float x) ||
@@ -176,6 +196,11 @@ public class AvatarController : MonoBehaviour
                 }
             }
         }
+        
+        yield return new WaitForSecondsRealtime(2f);
+
+        animator_rb.useGravity = true;
+        animator_rb.isKinematic = false;
 
         //must give it some time for the ragdoll to catch up to the changes of the static animator
         float project_time = Time.timeScale;
@@ -186,7 +211,7 @@ public class AvatarController : MonoBehaviour
         float energy_expenditure = energy_script.Calculate_energy();
         Time.timeScale = project_time;
 
-        //record the hand position
+        //record the position
         string data = string.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\"\n",
                                     wall_id, position_record["l_hand_position"], position_record["r_hand_position"], position_record["hip_rotation"],
                                     position_record["l_leg_position"], position_record["r_leg_position"], position_record["body_position"], energy_expenditure);
@@ -258,7 +283,7 @@ public class AvatarController : MonoBehaviour
 
         //move the hand based on local values; transformation based off the parents
         UnityEngine.Vector3 target_position = new(x_pos, y_pos, z_pos);
-        target.localPosition = target_position;
+        target.localPosition += target_position;
 
         //check if within radius
         if (!arm_span.bounds.Contains(target.position))
@@ -381,7 +406,7 @@ public class AvatarController : MonoBehaviour
 
         //move the leg based on local values; transformation based off the parents
         UnityEngine.Vector3 target_position = new(x_pos, y_pos, z_pos);
-        target.localPosition = target_position;
+        target.localPosition += target_position;
 
         //check if within radius
         if (!leg_span.bounds.Contains(target.position))
@@ -394,6 +419,30 @@ public class AvatarController : MonoBehaviour
 
         return (target.localPosition.x, target.localPosition.y, target.localPosition.z);
     }
+
+    //it messes up the location of the foot collider. So no longer we should do knee rotations
+    // public (float, float) Rotate_knees(float right_float, float left_float)
+    // {
+    //     //knee rtation limit is 110 in the x direction. No negatives.
+    //     float rotation_limit = 111f;
+
+    //     float  right_knee_float = Math.Abs(right_float % rotation_limit);
+    //     float left_knee_float = Math.Abs(left_float % rotation_limit);
+
+    //     //get the current rotation
+    //     UnityEngine.Vector3 r_knee_reposition = right_knee_target.eulerAngles;
+    //     UnityEngine.Vector3 l_knee_reposition = left_knee_target.eulerAngles;
+
+    //     //reposition only the x rotation
+    //     r_knee_reposition.x += right_knee_float;
+    //     l_knee_reposition.x += left_knee_float;
+
+    //     //change the target rotation
+    //     right_knee_target.transform.eulerAngles = r_knee_reposition;
+    //     left_knee_target.transform.eulerAngles = l_knee_reposition;
+
+    //     return (right_knee_float, left_knee_float);
+    // }
 
     public GameObject Reset_Controller()
     {
@@ -551,8 +600,8 @@ public class AvatarController : MonoBehaviour
         using (var file_writer = new StreamWriter(saved_poses_file, true))
         {
             //store change in transform
-            Vector3 l_hand_value = left_hand_target.transform.localPosition;
-            Vector3 r_hand_value = right_hand_target.transform.localPosition;
+            Vector3 l_hand_value = left_hand_target.transform.localPosition - left_hand_pos;
+            Vector3 r_hand_value = right_hand_target.transform.localPosition - right_hand_pos;
 
             //find change in transform
             Vector3 body_delta_value = static_animator.transform.position - body_pos;
@@ -562,8 +611,8 @@ public class AvatarController : MonoBehaviour
             Vector3 hip_value = hip_target.transform.eulerAngles - hip_rotation;
 
             //store change in transform
-            Vector3 l_leg_value = left_leg_target.transform.localPosition;
-            Vector3 r_leg_value = right_leg_target.transform.localPosition;
+            Vector3 l_leg_value = left_leg_target.transform.localPosition - left_leg_pos;
+            Vector3 r_leg_value = right_leg_target.transform.localPosition - right_leg_pos;
 
             //the move directions
             string title = pose_name + "\n";
@@ -573,6 +622,7 @@ public class AvatarController : MonoBehaviour
             string left_leg_move = string.Format("3,{0},{1},{2}\n", l_leg_value.x, l_leg_value.y, l_leg_value.z);
             string right_leg_move = string.Format("4,{0},{1},{2}\n", r_leg_value.x, r_leg_value.y, r_leg_value.z);
             string body_move = string.Format("5,{0},{1},{2}\n", body_pos_value.Item1.x, body_pos_value.Item2, body_pos_value.Item1.z);
+            
 
             //all of it together
             string data = string.Format("{0}{1}{2}{3}{4}{5}{6}\n", title, left_hand_move, right_hand_move, hip_move, left_leg_move, right_leg_move, body_move);

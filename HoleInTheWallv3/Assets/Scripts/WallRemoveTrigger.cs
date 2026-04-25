@@ -19,10 +19,20 @@ public class WallRemoveTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Walls" )
+        {       
+            other.transform.parent.gameObject.SetActive(false);
+            wall_complete = true;
+        }
+    }
+
+        public void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.tag == "Walls")
         {
             other.transform.parent.gameObject.SetActive(false);
             wall_complete = true;
         }
     }
+    
 }
