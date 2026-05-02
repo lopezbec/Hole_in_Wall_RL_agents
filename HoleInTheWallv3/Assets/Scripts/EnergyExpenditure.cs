@@ -151,14 +151,14 @@ public class EnergyExpenditure : MonoBehaviour
 
         //find the power from torque used in all the limbs, only if pelvis is not touching ground
         float maintenance_energy = 0f;
-        if (!is_sitting) Calculate_maintenance_energy();
+        if (!is_sitting) maintenance_energy = Calculate_maintenance_energy();
 
         final_energy = Alleviate_Energy(transition_energy + maintenance_energy);
 
         //test statements
         //Debug.Log("This is the external work : " + external_work);
         //Debug.Log("This is internal work : " + internal_work);
-        //Debug.Log("This is the maintenance : " + maintenance_energy);
+        Debug.Log("This is the maintenance : " + maintenance_energy);
         //Debug.Log("This is the final energy calc : " + final_energy + "\n");
 
         return final_energy;
