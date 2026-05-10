@@ -36,11 +36,13 @@ There are two ways to generate a wall for the user or agent to dodge the hole in
 The typical creation of walls is based on a matrix of int[,]. The default size is 9x9. 0s in the matrix stand for holes, and 1s stand for wall blocks.
 The developer can set their own desired width, height, and depth of the wall blocks. These are stored in the variables block_width, block_height, and block_depth respectively. The current default has a width and height that is nearly as big as the X_Bot agent’s head.
 
+![](MLAgents_Results/matrix_wall_generation.png)
 
 **Custom placements of blocks**:
 The developer is tasked to build each individual block to create a wall. They must pass the transformations such as the position and sizes. 
 The current functionalities, such as RL environment, do not match with the other approach to creating walls. As such, further development to this function is required.
 
+![](MLAgents_Results/custom_wall_generation.png)
 
 ## Agents
 Using a combination of ragdoll and Inverse Kinematics, AvatarController allows the developer to move specific limbs to pose and be affected by physics. 
