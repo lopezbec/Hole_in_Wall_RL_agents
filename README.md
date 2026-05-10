@@ -2,7 +2,7 @@
 [sites.lafayette.edu/lopezbec](https://sites.lafayette.edu/lopezbec)
 
 ---
-In this part of the project the goal is to train a reinforcement Learning Agent to automatically generate new obstacles of different levels of complexity. This with the goal to tailor the obstacles based on individual skills level. In order to achieve this, we first need to figure out a way to automatically measure the complexity of obstacles (i.e., how much energy would an average human use to complete it). To automate this process, the goal is to train a Avatar to pass through obstacles. For full documentation, go to MLAgents_Results/Hole_In_Wall_RLAgents_Documentation.docx.
+In this part of the project the goal is to train a reinforcement Learning Agent to automatically generate new obstacles of different levels of complexity. This with the goal to tailor the obstacles based on individual skills level. In order to achieve this, we first need to figure out a way to automatically measure the complexity of obstacles (i.e., how much energy would an average human use to complete it). To automate this process, the goal is to train a Avatar to pass through obstacles. The full [documentation](https://github.com/lopezbec/Hole_in_Wall_RL_agents/blob/main/MLAgents_Results/Hole_In_Wall_RLAgents_Documentation.docx) is provided in here.
 
 ## References
 
