@@ -66,7 +66,7 @@ Each of the limbs have limitations to their transformation or rotation. If trans
 
 The logic for physics after moving the static animator is by using Unity’s ragdoll. This allows the agent to move in a more human limited pose, without needing the developer to calculate each individual limb limitations in transformation and rotations. We utilize Ashleve’s ActiveRagdoll code to achieve this setup. 
 
-
+![](MLAgents_Results/avatar_agent.png)
 
 ## Energy Expenditure
 Given a pose, calculate the energy required to complete the set of actions. The current implementation are recalibrations of equations from two studies for energy on limbs. 
