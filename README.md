@@ -88,7 +88,7 @@ As such, the core calculations is based on two parts, the external and the inter
 ## Reinforcement Learning Through MLAgents Package
 The current implementation of reinforcement learning utilizes the MLAgents package. To install the environment, follow steps provided in documentation or wiki. 
 
-
+![](https://github.com/lopezbec/Hole_in_Wall_RL_agents/blob/a49252c1ff434e00d214af8a4d485f6e3a89e5b9/MLAgents_Results/GAIL.gif)
   
 ## Progress and Discussion
 
